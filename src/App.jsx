@@ -6,7 +6,7 @@ import DirectionSelect from "./components/DirectionSelect";
 import PeriodSelect from "./components/PeriodSelect";
 import ScheduleResults from "./components/ScheduleResults";
 import "./App.css";
-import logo from ".assets/bus-logo.png";
+import logo from "./assets/bus-logo.png";
 
 function App() {
   // These hold the student's current selections.
