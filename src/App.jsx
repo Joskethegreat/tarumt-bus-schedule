@@ -6,6 +6,7 @@ import DirectionSelect from "./components/DirectionSelect";
 import PeriodSelect from "./components/PeriodSelect";
 import ScheduleResults from "./components/ScheduleResults";
 import "./App.css";
+import logo from "./assets/tarumt-logo.png";
 
 function App() {
   // These hold the student's current selections.
@@ -23,7 +24,7 @@ function App() {
 
   return (
     <div className="app">
-      <img src="src/assets/bus-logo.png" alt="Bus logo" className="bus-logo" />
+      <img src={logo} alt="TARUMT Logo" className="bus-logo" />
       <h1>TARUMT</h1>
       <h2>Bus Schedule</h2>
 
