@@ -23,6 +23,7 @@ function App() {
 
   return (
     <div className="app">
+      <img src="src/assets/bus-logo.png" alt="Bus logo" className="bus-logo" />
       <h1>TARUMT</h1>
       <h2>Bus Schedule</h2>
 
