@@ -22,7 +22,7 @@ body {
   display: block;
   width: 200px;
   height: auto;
-  margin: 0 auto 24px;
+  margin: 0 auto 40px;
 }
 
 h1 {
@@ -59,7 +59,7 @@ select {
   background: #eee;
   appearance: none;
   font-style: italic;
-  color: #999;  
+  color: #3c3c3c;  
 }
 
 .results {
