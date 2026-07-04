@@ -27,6 +27,11 @@ function App() {
       <img src={logo} alt="TARUMT Logo" className="bus-logo" />
       <h1>TARUMT</h1>
       <h2>Bus Schedule</h2>
+      <br></br>
+      <p>
+        Search your bus schedule easily. <br></br> <i>(Disclaimer: This is not an official TARUMT website; schedules may not be up to date! I will try my best to update to the latest schedule.)</i><br></br>
+      </p>
+      
 
       <RouteSelect routes={routes} value={routeId} onChange={setRouteId} />
       <DirectionSelect value={direction} onChange={setDirection} />
@@ -42,8 +47,12 @@ function App() {
         />
       )}
       <p style={{ color: "#585858" }}>
-        <br />Designed by Joshua Lau.
+        Designed by Joshua Lau.
+        
       </p>
+
+      <p><br></br>Please contact <i>joshuahaojie@gmail.com</i> to report any issues or suggestions.</p>
+      <p><br></br><i>Last updated: 7 Jul 2026</i><br></br></p>
     </div>
   );
 }
