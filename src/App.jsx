@@ -41,6 +41,9 @@ function App() {
           routeMeta={routeMeta}
         />
       )}
+      <p style={{ color: "#585858" }}>
+        <br />Designed by Joshua Lau.
+      </p>
     </div>
   );
 }
