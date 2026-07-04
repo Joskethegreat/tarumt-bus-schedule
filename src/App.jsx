@@ -29,7 +29,10 @@ function App() {
       <h2>Bus Schedule</h2>
       <br></br>
       <p>
-        Search your bus schedule easily. <br></br> <i>(Disclaimer: This is not an official TARUMT website; schedules may not be up to date!)</i><br></br>
+        Search your bus schedule easily. 
+      </p>
+      <p>
+        <i>(Disclaimer: This is not an official TARUMT website; schedules may not be up to date!)</i>
       </p>
       
 
@@ -51,8 +54,8 @@ function App() {
         
       </p>
 
-      <p><br></br>Please contact <i>joshuahaojie@gmail.com</i> to report any issues or suggestions.</p>
-      <p><br></br><i>Last updated: 7 Jul 2026</i><br></br></p>
+      <p>Please contact <i>joshuahaojie@gmail.com</i> to report any issues or suggestions.</p>
+      <p><i>Last updated: 7 Jul 2026</i></p>
     </div>
   );
 }
