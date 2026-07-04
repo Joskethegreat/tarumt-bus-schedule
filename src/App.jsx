@@ -29,7 +29,7 @@ function App() {
       <h2>Bus Schedule</h2>
       <br></br>
       <p>
-        Search your bus schedule easily. <br></br> <i>(Disclaimer: This is not an official TARUMT website; schedules may not be up to date! I will try my best to update to the latest schedule.)</i><br></br>
+        Search your bus schedule easily. <br></br> <i>(Disclaimer: This is not an official TARUMT website; schedules may not be up to date!)</i><br></br>
       </p>
       
 
