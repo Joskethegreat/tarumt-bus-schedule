@@ -99,16 +99,27 @@ export default function MapModal({ isOpen, onClose, note }) {
               />
               <Polyline positions={routeCoordinates} color="blue" weight={3} />
 
-              {routeStops.map((stop, idx) => (
-                <Marker key={idx} position={[stop.coords.lat, stop.coords.lng]}>
-                  <Popup>
-                    <div className="popup-content">
-                      <strong>Stop {stop.step}</strong>
-                      <p>{stop.name}</p>
-                    </div>
-                  </Popup>
-                </Marker>
-              ))}
+              {routeStops.map((stop, idx) => {
+                const stopsAtLocation = routeStops.filter(s =>
+                  s.coords.lat === stop.coords.lat && s.coords.lng === stop.coords.lng
+                );
+                const isFirstAtLocation = stopsAtLocation[0] === stop;
+
+                if (!isFirstAtLocation) return null;
+
+                const steps = stopsAtLocation.map(s => s.step).join(" and ");
+
+                return (
+                  <Marker key={idx} position={[stop.coords.lat, stop.coords.lng]}>
+                    <Popup>
+                      <div className="popup-content">
+                        <strong>Stop {steps}</strong>
+                        <p>{stop.name}</p>
+                      </div>
+                    </Popup>
+                  </Marker>
+                );
+              })}
             </MapContainer>
 
             <div className="stops-list">

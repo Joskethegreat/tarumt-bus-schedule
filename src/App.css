@@ -8,7 +8,7 @@
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  background: linear-gradient(to bottom, #ccf1ff, #ffffff);
+  background: linear-gradient(to bottom, #ccf1ff, #9dcaf8);
   min-height: 100vh;
   position: relative;
   overflow-x: hidden;
@@ -101,7 +101,7 @@ select:focus {
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.215);
   border-radius: 20px;
   padding: 20px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
@@ -139,10 +139,10 @@ select:focus {
 .time-list {
   list-style: none;
   padding: 0;
-  background: rgba(125, 125, 125, 0.15);
+  background: rgba(202, 202, 202, 0.15);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(172, 172, 172, 0.388);
   border-radius: 16px;
   padding: 16px;
   max-height: 300px;
