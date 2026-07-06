@@ -5,11 +5,31 @@
   box-sizing: border-box;
 }
 
+html {
+  background: transparent !important;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  background: linear-gradient(to bottom, #ffffff, #b0b0b0);
+  background: transparent;
   min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.parallax-bg {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: blur(20px) saturate(80%) brightness(120%);
+  z-index: -1;
+  pointer-events: none;
+  will-change: transform;
+  transform: translate(-50%, -50%);
 }
 
 .app {
@@ -18,18 +38,31 @@ body {
   padding: 32px 20px;
 }
 
+.app > p {
+  color: #333;
+}
+
 .bus-logo {
   display: block;
   width: 200px;
   height: auto;
   margin: 0 auto 40px;
+  transition: transform 0.05s linear;
+}
+
+.bus-logo-bottom {
+  display: block;
+  width: 200px;
+  height: auto;
+  margin: 40px auto 20px;
+  transition: transform 0.05s linear;
 }
 
 h1 {
   font-size: 2.5rem;
   font-weight: 800;
   margin-bottom: 0;
-  color: #1a1a1a;
+  color: #444;
 }
 
 h2 {
@@ -37,6 +70,10 @@ h2 {
   font-size: 1.8rem;
   margin-top: 4px;
   color: #333;
+}
+
+h3 {
+  color: #444;
 }
 
 .field {
@@ -55,22 +92,42 @@ select {
   padding: 16px;
   font-size: 1rem;
   border-radius: 16px;
-  border: 1px solid #999;
-  background: #eee;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   appearance: none;
   font-style: italic;
-  color: #3c3c3c;  
+  color: #3c3c3c;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+select:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+select:focus {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+  outline: none;
 }
 
 .results {
   margin-top: 32px;
-  background: rgba(255, 255, 255, 0.6);
-  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
   padding: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
 .route-info p {
   margin: 4px 0;
+  color: #444;
 }
 
 .tabs {
@@ -83,8 +140,10 @@ select {
   flex: 1;
   padding: 10px;
   border-radius: 12px;
-  border: 1px solid #999;
-  background: #ddd;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   cursor: pointer;
   font-size: 0.9rem;
 }
@@ -98,7 +157,10 @@ select {
 .time-list {
   list-style: none;
   padding: 0;
-  background: #ddd;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 16px;
   padding: 16px;
   max-height: 300px;
@@ -109,6 +171,7 @@ select {
   padding: 10px 0;
   text-align: center;
   border-bottom: 1px solid #ccc;
+  color: #444;
 }
 
 .time-list li:last-child {
@@ -116,13 +179,31 @@ select {
 }
 
 .note {
-  color: #666;
+  color: #444;
   font-size: 0.85em;
+}
+
+.map-link-container {
+  margin-top: 8px;
+  padding-left: 10px;
+}
+
+.map-link {
+  color: #0066cc;
+  text-decoration: none;
+  font-size: 0.9em;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.map-link:hover {
+  text-decoration: underline;
+  color: #0052a3;
 }
 
 .no-data {
   text-align: center;
-  color: #777;
+  color: #444;
   font-style: italic;
 }
 
@@ -136,4 +217,19 @@ option[value=""] {
 
 select {
   color: #3c3c3c;
+}
+
+.app-footer {
+  background-color: #333333;
+  color: #f0f0f0;
+  padding: 32px 20px;
+  margin: 40px -20px -32px -20px;
+  text-align: center;
+}
+
+.footer-text {
+  margin: 8px 0;
+  color: #f0f0f0;
+  font-size: 0.95rem;
+  line-height: 1.5;
 }

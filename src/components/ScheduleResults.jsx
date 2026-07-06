@@ -1,11 +1,14 @@
 import { useState } from "react";
 import { schedules } from "../data/schedules";
+import MapModal from "./MapModal";
 
 // Shows the filtered bus times, with a Mon-Thu / Friday / Saturday toggle
 // if the selected period has more than one day-group available.
 
 export default function ScheduleResults({ periodId, routeId, direction, periodMeta, routeMeta }) {
   const [dayGroup, setDayGroup] = useState("monThu");
+  const [mapOpen, setMapOpen] = useState(false);
+  const [selectedNote, setSelectedNote] = useState(null);
 
   // Look up the actual times from the nested schedules object.
   // Optional chaining (?.) prevents errors if data hasn't been filled in yet.
@@ -54,11 +57,36 @@ export default function ScheduleResults({ periodId, routeId, direction, periodMe
           {times.map((entry, index) => (
             <li key={index}>
               {entry.time}
-              {entry.note ? <span className="note"> ({entry.note})</span> : null}
+              {entry.note ? (
+                <>
+                  <span className="note"> ({entry.note})</span>
+                  {!entry.time && (
+                    <div className="map-link-container">
+                      <a
+                        href="#"
+                        className="map-link"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          setSelectedNote(entry.note);
+                          setMapOpen(true);
+                        }}
+                      >
+                        Click to view map
+                      </a>
+                    </div>
+                  )}
+                </>
+              ) : null}
             </li>
           ))}
         </ul>
       )}
+
+      <MapModal
+        isOpen={mapOpen}
+        onClose={() => setMapOpen(false)}
+        note={selectedNote}
+      />
     </div>
   );
 }
