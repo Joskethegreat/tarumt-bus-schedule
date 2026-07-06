@@ -2,7 +2,7 @@
 //
 // Defines the bus routes (zones). Keep this separate from times so it's
 // easy to see all routes at a glance. "stops" is just for display —
-// it's the list of places the bus passes, shown to the student.
+// it's the list of places the bus passes, shown to the student.z
 
 export const routes = [
   {
