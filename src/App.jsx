@@ -51,7 +51,7 @@ function App() {
         alt="TARUMT Logo"
         className="bus-logo"
         style={{
-          transform: `translateX(${busOffset}px)`,
+          transform: `translateX(${busOffset/3}px)`,
         }}
       />
       <h1>TARUMT</h1>
@@ -85,7 +85,7 @@ function App() {
           alt="TARUMT Bus"
           className="bus-logo-bottom"
           style={{
-            transform: `translateX(${busOffsetBottom}px)`,
+            transform: `translateX(${busOffsetBottom/3}px)`,
           }}
         />
       )}
