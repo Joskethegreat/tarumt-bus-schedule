@@ -5,31 +5,13 @@
   box-sizing: border-box;
 }
 
-html {
-  background: transparent !important;
-}
-
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  background: transparent;
+  background: linear-gradient(to bottom, #ccf1ff, #ffffff);
   min-height: 100vh;
   position: relative;
   overflow-x: hidden;
-}
-
-.parallax-bg {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  width: auto;
-  height: auto;
-  object-fit: contain;
-  filter: blur(20px) saturate(80%) brightness(120%);
-  z-index: -1;
-  pointer-events: none;
-  will-change: transform;
-  transform: translate(-50%, -50%);
 }
 
 .app {

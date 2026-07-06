@@ -8,7 +8,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1000;
+  z-index: 9999;
+  overflow: hidden;
 }
 
 .modal-content {
@@ -21,6 +22,7 @@
   flex-direction: column;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
   overflow: hidden;
+  box-sizing: border-box;
 }
 
 .modal-header {
@@ -62,6 +64,8 @@
   margin: 20px;
   flex-shrink: 0;
   z-index: 1;
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
 .stops-list {
@@ -124,13 +128,15 @@
 @media (max-width: 768px) {
   .modal-content {
     max-width: 480px;
-    max-height: 95vh;
-    width: 95%;
+    max-height: 85vh;
+    width: calc(100% - 30px);
+    margin: 0 auto;
   }
 
   .map-container {
     height: 250px;
     margin: 15px;
+    width: calc(100% - 30px);
   }
 
   .stops-list ul {
@@ -139,10 +145,24 @@
 }
 
 @media (max-width: 480px) {
+  .modal-overlay {
+    align-items: flex-start;
+    padding-top: 20px;
+  }
+
   .modal-content {
     max-width: 100%;
-    width: 95%;
-    max-height: 85vh;
+    width: calc(100% - 20px);
+    max-height: calc(100vh - 40px);
+    margin: 0 10px;
+  }
+
+  .modal-header h2 {
+    font-size: 1.1rem;
+  }
+
+  .modal-header {
+    padding: 15px;
   }
 
   .map-container {
@@ -151,12 +171,18 @@
     width: calc(100% - 20px);
   }
 
-  .modal-header h2 {
-    font-size: 1.2rem;
-  }
-
   .stops-list {
     max-height: 150px;
-    padding: 15px;
+    padding: 10px;
+  }
+
+  .stops-list h3 {
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+  }
+
+  .stops-list li {
+    font-size: 0.8rem;
+    padding: 6px 10px;
   }
 }

@@ -7,7 +7,6 @@ import PeriodSelect from "./components/PeriodSelect";
 import ScheduleResults from "./components/ScheduleResults";
 import "./App.css";
 import logo from "./assets/bus-logo.png";
-import skyBg from "./assets/sky-background.jpg";
 
 function App() {
   // These hold the student's current selections.
@@ -45,11 +44,6 @@ function App() {
 
   return (
     <>
-      <img
-        src={skyBg}
-        alt="sky background"
-        className="parallax-bg"
-      />
       <div className="app">
       <img
         ref={busLogoRef}
