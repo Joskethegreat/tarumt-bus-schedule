@@ -63,7 +63,7 @@ function App() {
       <p>
         <i>(Disclaimer: This is not an official TARUMT website; schedules and routes may be inaccurate!)</i>
       </p>
-      <div style={{ height: "20px" }}></div>
+      <div style={{ height: "20px" }}></div> 
 
       <RouteSelect routes={routes} value={routeId} onChange={setRouteId} />
       <DirectionSelect value={direction} onChange={setDirection} />
