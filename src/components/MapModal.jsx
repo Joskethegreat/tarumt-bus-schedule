@@ -44,21 +44,6 @@ export default function MapModal({ isOpen, onClose, note }) {
       }
     });
 
-    // If first and last stops are the same location, mark them with combined step numbers
-    if (validStops.length > 1) {
-      const firstCoords = validStops[0].coords;
-      const lastCoords = validStops[validStops.length - 1].coords;
-
-      if (
-        firstCoords.lat === lastCoords.lat &&
-        firstCoords.lng === lastCoords.lng
-      ) {
-        const lastStep = validStops[validStops.length - 1].step;
-        validStops[0].step = `1/${lastStep}`;
-        validStops[validStops.length - 1].step = `1 and ${lastStep}`;
-      }
-    }
-
     setRouteCoordinates(coordinates);
     setRouteStops(validStops);
   }, [isOpen, note]);
