@@ -60,7 +60,7 @@ export default function ScheduleResults({ periodId, routeId, direction, periodMe
               {entry.note ? (
                 <>
                   <span className="note"> ({entry.note})</span>
-                  {!entry.time && (
+                  {!entry.time && entry.note !== "Prayer break" && (
                     <div className="map-link-container">
                       <a
                         href="#"
@@ -71,7 +71,7 @@ export default function ScheduleResults({ periodId, routeId, direction, periodMe
                           setMapOpen(true);
                         }}
                       >
-                        Click to view map
+                        Click to view route
                       </a>
                     </div>
                   )}
