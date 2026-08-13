@@ -115,8 +115,83 @@
 }
 
 .popup-content p {
-  margin: 0;
+  margin: 0 0 8px;
   font-size: 0.9rem;
+}
+
+.gmaps-directions-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  color: #1a73e8;
+  text-decoration: none;
+}
+
+.gmaps-directions-link:hover {
+  text-decoration: underline;
+}
+
+.gmaps-icon {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.numbered-marker {
+  background: transparent;
+  border: none;
+}
+
+.numbered-marker-pin {
+  width: 30px;
+  height: 42px;
+  position: relative;
+}
+
+.numbered-marker-pin::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30px;
+  height: 30px;
+  background: #007bff;
+  border: 2px solid white;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.numbered-marker-pin span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.direction-arrow {
+  background: transparent;
+  border: none;
+}
+
+.direction-arrow-icon {
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0056b3;
+  font-size: 14px;
+  text-shadow: 0 0 2px white, 0 0 2px white, 0 0 2px white;
 }
 
 .no-data {

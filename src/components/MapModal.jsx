@@ -3,19 +3,41 @@ import { MapContainer, TileLayer, Marker, Popup, Polyline } from "react-leaflet"
 import L from "leaflet";
 import { locations } from "../data/locations";
 import "../styles/MapModal.css";
+import googleMapsIcon from "../assets/google-maps-icon.png";
+import { useLanguage } from "../context/LanguageContext";
 
-// Fix for default markers not showing in Leaflet
-delete L.Icon.Default.prototype._getIconUrl;
-L.Icon.Default.mergeOptions({
-  iconRetinaUrl:
-    "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-icon-2x.png",
-  iconUrl:
-    "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-icon.png",
-  shadowUrl:
-    "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png",
-});
+function numberedIcon(label) {
+  const fontSize = label.length > 3 ? "0.6rem" : "0.75rem";
+  return L.divIcon({
+    className: "numbered-marker",
+    html: `<div class="numbered-marker-pin"><span style="font-size: ${fontSize}">${label}</span></div>`,
+    iconSize: [30, 42],
+    iconAnchor: [15, 42],
+    popupAnchor: [0, -38],
+  });
+}
+
+function bearing([lat1, lng1], [lat2, lng2]) {
+  const toRad = (d) => (d * Math.PI) / 180;
+  const toDeg = (r) => (r * 180) / Math.PI;
+  const y = Math.sin(toRad(lng2 - lng1)) * Math.cos(toRad(lat2));
+  const x =
+    Math.cos(toRad(lat1)) * Math.sin(toRad(lat2)) -
+    Math.sin(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.cos(toRad(lng2 - lng1));
+  return (toDeg(Math.atan2(y, x)) + 360) % 360;
+}
+
+function arrowIcon(angle) {
+  return L.divIcon({
+    className: "direction-arrow",
+    html: `<div class="direction-arrow-icon" style="transform: rotate(${angle}deg)">&#9650;</div>`,
+    iconSize: [16, 16],
+    iconAnchor: [8, 8],
+  });
+}
 
 export default function MapModal({ isOpen, onClose, note }) {
+  const { t } = useLanguage();
   const [routeCoordinates, setRouteCoordinates] = useState([]);
   const [routeStops, setRouteStops] = useState([]);
 
@@ -64,7 +86,7 @@ export default function MapModal({ isOpen, onClose, note }) {
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         <div className="modal-header">
-          <h2>Route Map</h2>
+          <h2>{t("routeMapTitle")}</h2>
           <button className="close-btn" onClick={onClose}>
             ✕
           </button>
@@ -72,8 +94,7 @@ export default function MapModal({ isOpen, onClose, note }) {
 
         {routeCoordinates.length === 0 ? (
           <p className="no-data">
-            Could not find coordinates for this route. Please check location
-            names.
+            {t("noRouteData")}
           </p>
         ) : (
           <>
@@ -84,6 +105,23 @@ export default function MapModal({ isOpen, onClose, note }) {
               />
               <Polyline positions={routeCoordinates} color="blue" weight={3} />
 
+              {routeCoordinates.slice(0, -1).map((start, idx) => {
+                const end = routeCoordinates[idx + 1];
+                const mid = [
+                  (start[0] + end[0]) / 2,
+                  (start[1] + end[1]) / 2,
+                ];
+                const angle = bearing(start, end);
+                return (
+                  <Marker
+                    key={`arrow-${idx}`}
+                    position={mid}
+                    icon={arrowIcon(angle)}
+                    interactive={false}
+                  />
+                );
+              })}
+
               {routeStops.map((stop, idx) => {
                 const stopsAtLocation = routeStops.filter(s =>
                   s.coords.lat === stop.coords.lat && s.coords.lng === stop.coords.lng
@@ -93,13 +131,27 @@ export default function MapModal({ isOpen, onClose, note }) {
                 if (!isFirstAtLocation) return null;
 
                 const steps = stopsAtLocation.map(s => s.step).join(" and ");
+                const pinLabel = stopsAtLocation.map(s => s.step).join("/");
 
                 return (
-                  <Marker key={idx} position={[stop.coords.lat, stop.coords.lng]}>
+                  <Marker
+                    key={idx}
+                    position={[stop.coords.lat, stop.coords.lng]}
+                    icon={numberedIcon(pinLabel)}
+                  >
                     <Popup>
                       <div className="popup-content">
-                        <strong>Stop {steps}</strong>
+                        <strong>{t("stopLabel")} {steps}</strong>
                         <p>{stop.name}</p>
+                        <a
+                          className="gmaps-directions-link"
+                          href={`https://www.google.com/maps/dir/?api=1&destination=${stop.coords.lat},${stop.coords.lng}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <img src={googleMapsIcon} alt="" className="gmaps-icon" />
+                          {t("viewDirection")}
+                        </a>
                       </div>
                     </Popup>
                   </Marker>
@@ -108,7 +160,7 @@ export default function MapModal({ isOpen, onClose, note }) {
             </MapContainer>
 
             <div className="stops-list">
-              <h3>Route Stops:</h3>
+              <h3>{t("routeStopsHeading")}</h3>
               <ul>
                 {routeStops.map((stop, idx) => (
                   <li key={idx}>

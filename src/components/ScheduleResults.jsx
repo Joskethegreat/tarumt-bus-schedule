@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { schedules } from "../data/schedules";
 import MapModal from "./MapModal";
+import { useLanguage } from "../context/LanguageContext";
 
 // Shows the filtered bus times, with a Mon-Thu / Friday / Saturday toggle
 // if the selected period has more than one day-group available.
 
 export default function ScheduleResults({ periodId, routeId, direction, periodMeta, routeMeta }) {
+  const { t } = useLanguage();
   const [dayGroup, setDayGroup] = useState("monThu");
   const [mapOpen, setMapOpen] = useState(false);
   const [selectedNote, setSelectedNote] = useState(null);
@@ -20,18 +22,13 @@ export default function ScheduleResults({ periodId, routeId, direction, periodMe
   if (periodMeta?.hasSaturday) availableDayGroups.push("saturday");
 
   const dayGroupLabels = {
-    monThu: "Monday - Thursday",
-    friday: "Friday",
-    saturday: "Saturday",
+    monThu: t("monThu"),
+    friday: t("friday"),
+    saturday: t("saturday"),
   };
 
   return (
     <div className="results">
-      <div className="route-info">
-        <p><strong>Bus Route:</strong> {routeMeta?.label} ({direction === "toCampus" ? "To Campus" : "From Campus"})</p>
-        <p><strong>Semester Type:</strong> {periodMeta?.label}</p>
-      </div>
-
       {/* Only show day-group tabs if there's more than one option */}
       {availableDayGroups.length > 1 && (
         <div className="tabs">
@@ -47,10 +44,10 @@ export default function ScheduleResults({ periodId, routeId, direction, periodMe
         </div>
       )}
 
-      <h3>Time:</h3>
+      <h3>{t("timeHeading")}</h3>
       {times.length === 0 ? (
         <p className="no-data">
-          No schedule data entered yet for this combination.
+          {t("noScheduleData")}
         </p>
       ) : (
         <ul className="time-list">
@@ -71,7 +68,7 @@ export default function ScheduleResults({ periodId, routeId, direction, periodMe
                           setMapOpen(true);
                         }}
                       >
-                        Click to view route
+                        {t("clickToViewRoute")}
                       </a>
                     </div>
                   )}

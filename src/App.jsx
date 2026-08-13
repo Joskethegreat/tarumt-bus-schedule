@@ -5,16 +5,20 @@ import RouteSelect from "./components/RouteSelect";
 import DirectionSelect from "./components/DirectionSelect";
 import PeriodSelect from "./components/PeriodSelect";
 import ScheduleResults from "./components/ScheduleResults";
+import ShareButtons from "./components/ShareButtons";
+import LanguageToggle from "./components/LanguageToggle";
+import { useLanguage } from "./context/LanguageContext";
 import "./App.css";
 import logo from "./assets/bus-logo.png";
 
 function App() {
+  const { t } = useLanguage();
+
   // These hold the student's current selections.
   const [routeId, setRouteId] = useState("");
   const [direction, setDirection] = useState("");
   const [periodId, setPeriodId] = useState("");
   const [busOffset, setBusOffset] = useState(0);
-  const [busOffsetBottom, setBusOffsetBottom] = useState(0);
   const busLogoRef = useRef(null);
 
   // Look up the full objects for whichever ids are selected,
@@ -34,8 +38,6 @@ function App() {
       const maxOffset = window.innerWidth;
       // Top bus: moves right as you scroll (0 to maxOffset)
       setBusOffset(scrollProgress * maxOffset);
-      // Bottom bus: starts far left, moves to center (negative to 0)
-      setBusOffsetBottom(-maxOffset + (scrollProgress * maxOffset));
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -44,6 +46,7 @@ function App() {
 
   return (
     <>
+      <LanguageToggle />
       <div className="app">
       <img
         ref={busLogoRef}
@@ -55,13 +58,13 @@ function App() {
         }}
       />
       <h1>TARUMT</h1>
-      <h2>Bus Schedule Finder</h2>
+      <h2>{t("appSubtitle")}</h2>
       <br></br>
       <p>
-        Search your bus schedule easily. 
+        {t("introText")}
       </p>
       <p>
-        <i>(Disclaimer: This is not an official TARUMT website; schedules and routes may be inaccurate!)</i>
+        <i>{t("disclaimer")}</i>
       </p>
       <div style={{ height: "20px" }}></div> 
 
@@ -79,24 +82,15 @@ function App() {
         />
       )}
 
-      {showResults && (
-        <img
-          src={logo}
-          alt="TARUMT Bus"
-          className="bus-logo-bottom"
-          style={{
-            transform: `translateX(${busOffsetBottom/10}px)`,
-          }}
-        />
-      )}
+      {showResults && <ShareButtons />}
 
       <footer className="app-footer">
         <p className="footer-text">
-          Designed by Joshua Lau.
+          {t("footerDesigned")}
         </p>
 
-        <p className="footer-text">Please contact <i>joshuahaojie@gmail.com</i> to report any issues or suggestions.</p>
-        <p className="footer-text"><i>Last updated: 7 Jul 2026</i></p>
+        <p className="footer-text">{t("footerContactPrefix")} <i>joshuahaojie@gmail.com</i> {t("footerContactSuffix")}</p>
+        <p className="footer-text"><i>{t("footerLastUpdated")} 13 Aug 2026</i></p>
       </footer>
       </div>
     </>
