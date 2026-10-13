@@ -7,6 +7,7 @@ import PeriodSelect from "./components/PeriodSelect";
 import ScheduleResults from "./components/ScheduleResults";
 import ShareButtons from "./components/ShareButtons";
 import LanguageToggle from "./components/LanguageToggle";
+import FeedbackButton from "./components/FeedbackButton";
 import { useLanguage } from "./context/LanguageContext";
 import "./App.css";
 import logo from "./assets/bus-logo.png";
@@ -46,7 +47,15 @@ function App() {
 
   return (
     <>
+      <svg className="glass-filter" aria-hidden="true">
+        <filter id="liquid-glass" x="-10%" y="-10%" width="120%" height="120%" colorInterpolationFilters="sRGB">
+          <feTurbulence type="fractalNoise" baseFrequency="0.015 0.02" numOctaves="2" seed="3" result="noise" />
+          <feGaussianBlur in="noise" stdDeviation="2" result="map" />
+          <feDisplacementMap in="SourceGraphic" in2="map" scale="22" xChannelSelector="R" yChannelSelector="G" />
+        </filter>
+      </svg>
       <LanguageToggle />
+      <FeedbackButton />
       <div className="app">
       <img
         ref={busLogoRef}

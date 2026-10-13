@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { MapContainer, TileLayer, Marker, Popup, Polyline } from "react-leaflet";
 import L from "leaflet";
+import { createPortal } from "react-dom";
 import { locations } from "../data/locations";
 import "../styles/MapModal.css";
 import googleMapsIcon from "../assets/google-maps-icon.png";
@@ -82,7 +83,9 @@ export default function MapModal({ isOpen, onClose, note }) {
         ]
       : [3.17, 101.58]; // Default center
 
-  return (
+  // Portal to <body>: an ancestor with backdrop-filter would otherwise trap
+  // position:fixed inside itself, making the modal look embedded.
+  return createPortal(
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         <div className="modal-header">
@@ -172,6 +175,7 @@ export default function MapModal({ isOpen, onClose, note }) {
           </>
         )}
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }
