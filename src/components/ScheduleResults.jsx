@@ -37,6 +37,7 @@ export default function ScheduleResults({ periodId, routeId, direction, periodMe
               key={dg}
               className={dg === dayGroup ? "tab active" : "tab"}
               onClick={() => setDayGroup(dg)}
+              disabled={!schedules?.[periodId]?.[routeId]?.[direction]?.[dg]}
             >
               {dayGroupLabels[dg]}
             </button>

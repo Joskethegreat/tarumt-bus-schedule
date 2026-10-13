@@ -14,7 +14,76 @@
 // IMPORTANT: keep times as 12-hour strings for now ("7:10 AM") — simplest
 // for you to type in directly from the PDF without conversion mistakes.
 
+// Semester Holiday (12 Oct – 31 Oct 2026, Mon–Fri only): every zone runs the
+// same times; only the stop sequence in the note differs per zone.
+const holidayToCampus = [
+  { time: "7:20 AM" },
+  { time: "8:00 AM" },
+  { time: "8:45 AM" },
+  { time: "9:30 AM" },
+];
+const holidayFromCampus = [
+  { time: "10:30 AM" },
+  { time: "11:15 AM" },
+  { time: "12:00 PM" },
+  { time: "2:15 PM" },
+  { time: "3:00 PM" },
+  { time: "3:45 PM" },
+  { time: "4:30 PM" },
+  { time: "5:15 PM" },
+  { time: "6:00 PM" }, // printed as 5.00 on the Wangsa Maju column, assumed typo (PV18/Melati show 6.00)
+  { time: "6:45 PM" },
+];
+const holidayMelatiToCampus = [
+  { note: "Melati Utama > Junction MU > DK Suites Apartment > PV10 > East Campus(Gate 7)" },
+  ...holidayToCampus,
+];
+const holidayMelatiFromCampus = [
+  { note: "Bus Stop 3(CITC) > Bus Stop 1(CITC) > Melati Utama > Junction MU > DK Suites Apartment > PV12/10 > East Campus(Gate 7) > Bus Stop 3(CITC)" },
+  ...holidayFromCampus,
+];
+
 export const schedules = {
+  "sem-holiday-oct-2026": {
+    "wangsa-maju": {
+      toCampus: {
+        monThu: [
+          { note: "Wangsa Maju Section 2 > Hospital ATM Tuanku Mizan > Wangsa Metroview bus stop > LRT Wangsa Maju > Tarvilla > East Campus(Gate 7)" },
+          ...holidayToCampus,
+        ],
+      },
+      fromCampus: {
+        monThu: [
+          { note: "Arena > Tarvilla > LRT Wangsa Maju > Hospital ATM Tuanku Mizan > Metroview bus stop > LRT Wangsa Maju > East Campus(Gate 7) > Arena" },
+          ...holidayFromCampus,
+        ],
+      },
+    },
+    "pv18-teratai": {
+      toCampus: {
+        monThu: [
+          { note: "PV18 > Teratai Residency > Prima Setapak > The Nest > Setapak Central > East Campus(Gate 7) > Bus Stop 4(CITC)" },
+          ...holidayToCampus,
+        ],
+      },
+      fromCampus: {
+        monThu: [
+          { note: "Bus Stop 4(CITC) > DK Suites Apartment > PV12 > PV18 > Teratai Residency > Prima Setapak > The Nest > Setapak Central > East Campus(Gate 7) > Bus Stop 4(CITC)" },
+          ...holidayFromCampus,
+        ],
+      },
+    },
+    // The sheet's third column covers both of these routes.
+    "melati-utama": {
+      toCampus: { monThu: holidayMelatiToCampus },
+      fromCampus: { monThu: holidayMelatiFromCampus },
+    },
+    "pv10-12-15-16": {
+      toCampus: { monThu: holidayMelatiToCampus },
+      fromCampus: { monThu: holidayMelatiFromCampus },
+    },
+  },
+
   "normal-sem-2026-1": {
     "wangsa-maju": {
       toCampus: {
@@ -535,3 +604,10 @@ export const schedules = {
   // that don't exist (e.g. Saturday for a period with hasSaturday: false —
   // you can just omit that dayGroup entirely).
 };
+// Holiday period runs the same timetable Mon–Fri; there is no Saturday data,
+// so the Saturday tab shows greyed out.
+for (const route of Object.values(schedules["sem-holiday-oct-2026"])) {
+  for (const direction of Object.values(route)) {
+    direction.friday = direction.monThu;
+  }
+}

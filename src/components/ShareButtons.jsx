@@ -23,7 +23,7 @@ async function shareViaApp(appName, fallbackUrl) {
   window.open(fallbackUrl, "_blank", "noopener,noreferrer");
 }
 
-export default function ShareButtons() {
+export default function ShareButtons({ visits }) {
   const { t } = useLanguage();
 
   return (
@@ -83,6 +83,11 @@ export default function ShareButtons() {
           <span>RedNote</span>
         </button>
       </div>
+      {visits !== null && (
+        <p className="visit-counter">
+          {t("visitsLabel")} {visits.toLocaleString()}
+        </p>
+      )}
     </div>
   );
 }

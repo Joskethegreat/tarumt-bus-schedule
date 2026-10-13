@@ -8,6 +8,7 @@ import ScheduleResults from "./components/ScheduleResults";
 import ShareButtons from "./components/ShareButtons";
 import LanguageToggle from "./components/LanguageToggle";
 import FeedbackButton from "./components/FeedbackButton";
+import { getVisitCount } from "./utils/visitCount";
 import { useLanguage } from "./context/LanguageContext";
 import "./App.css";
 import logo from "./assets/bus-logo.png";
@@ -21,6 +22,11 @@ function App() {
   const [periodId, setPeriodId] = useState("");
   const [busOffset, setBusOffset] = useState(0);
   const busLogoRef = useRef(null);
+  const [visits, setVisits] = useState(null);
+
+  useEffect(() => {
+    getVisitCount().then(setVisits);
+  }, []);
 
   // Look up the full objects for whichever ids are selected,
   // so ScheduleResults can display labels without re-searching.
@@ -91,7 +97,7 @@ function App() {
         />
       )}
 
-      {showResults && <ShareButtons />}
+      {showResults && <ShareButtons visits={visits} />}
 
       <footer className="app-footer">
         <p className="footer-text">
@@ -99,7 +105,7 @@ function App() {
         </p>
 
         <p className="footer-text">{t("footerContactPrefix")} <i>joshuahaojie@gmail.com</i> {t("footerContactSuffix")}</p>
-        <p className="footer-text"><i>{t("footerLastUpdated")} 13 Aug 2026</i></p>
+        <p className="footer-text"><i>{t("footerLastUpdated")} 13 Oct 2026</i></p>
       </footer>
       </div>
     </>

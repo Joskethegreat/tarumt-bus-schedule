@@ -13,6 +13,15 @@
 // MUST UPDATE AFTER SCHOOL UPDATES SCHEDULES: Whenever a new schedule PDF is released, add a new period here.
 
 export const periods = [
+  {
+    id: "sem-holiday-oct-2026",
+    label: "Semester Holiday (12 Oct – 31 Oct 2026)",
+    type: "range",
+    validFrom: "2026-10-12",
+    validTo: "2026-10-31",
+    hasFriday: true, // same timetable as Mon–Thu
+    hasSaturday: true, // shown greyed out: no Saturday service this period
+  },
   /*
   {
     id: "orientation-week-2026",

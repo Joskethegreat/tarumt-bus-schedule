@@ -25,6 +25,7 @@ export const translations = {
     clickToViewRoute: "Click to view route",
 
     shareTitle: "Share to your friends!",
+    visitsLabel: "Visits:",
 
     routeMapTitle: "Route Map",
     noRouteData:
@@ -77,6 +78,7 @@ export const translations = {
     clickToViewRoute: "Klik untuk lihat laluan",
 
     shareTitle: "Kongsi dengan rakan anda!",
+    visitsLabel: "Lawatan:",
 
     routeMapTitle: "Peta Laluan",
     noRouteData:
@@ -128,6 +130,7 @@ export const translations = {
     clickToViewRoute: "点击查看路线",
 
     shareTitle: "分享给朋友！",
+    visitsLabel: "访问量：",
 
     routeMapTitle: "路线地图",
     noRouteData: "找不到此路线的坐标。请检查地点名称。",
