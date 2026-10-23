@@ -21,17 +21,15 @@
     />
 
     <script>
-      // Pick the theme before first paint (saved choice, else system setting).
+      // Pick the theme before first paint (saved choice, else light).
       (function () {
         var t = null;
         try { t = localStorage.getItem("tarumt-bus-theme"); } catch (e) {}
-        if (t !== "dark" && t !== "light") {
-          t = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-        }
+        if (t !== "dark" && t !== "light") t = "light";
         document.documentElement.setAttribute("data-theme", t);
       })();
     </script>
-    <script type="module" crossorigin src="/tarumt-bus-schedule/assets/index-vAcDyZtd.js"></script>
+    <script type="module" crossorigin src="/tarumt-bus-schedule/assets/index-Dj0whqBr.js"></script>
     <link rel="stylesheet" crossorigin href="/tarumt-bus-schedule/assets/index-vCG_Jo01.css">
   </head>
   <body>
