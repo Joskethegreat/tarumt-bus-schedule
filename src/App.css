@@ -50,10 +50,9 @@ body {
 
 .bus-logo {
   display: block;
-  width: 200px;
+  width: min(100%, 360px);
   height: auto;
   margin: 0 auto 40px;
-  transition: transform 0.05s linear;
 }
 
 h1 {

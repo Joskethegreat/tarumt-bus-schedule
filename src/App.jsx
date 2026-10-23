@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { periods } from "./data/periods";
 import { routes } from "./data/routes";
 import RouteSelect from "./components/RouteSelect";
@@ -23,8 +23,6 @@ function App() {
   const [routeId, setRouteId] = useState("");
   const [direction, setDirection] = useState("");
   const [periodId, setPeriodId] = useState("");
-  const [busOffset, setBusOffset] = useState(0);
-  const busLogoRef = useRef(null);
   const [visits, setVisits] = useState(null);
 
   useEffect(() => {
@@ -38,21 +36,6 @@ function App() {
 
   // Only show results once all three choices are made.
   const showResults = routeId && direction && periodId;
-
-  // Handle bus animation based on scroll position
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollProgress =
-        window.scrollY /
-        (document.documentElement.scrollHeight - window.innerHeight);
-      const maxOffset = window.innerWidth;
-      // Top bus: moves right as you scroll (0 to maxOffset)
-      setBusOffset(scrollProgress * maxOffset);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   return (
     <>
@@ -69,13 +52,9 @@ function App() {
       <CoffeeButton />
       <div className="app">
       <img
-        ref={busLogoRef}
         src={logo}
         alt="TARUMT Logo"
         className="bus-logo"
-        style={{
-          transform: `translateX(${busOffset/10}px)`,
-        }}
       />
       <h1>TARUMT</h1>
       <h2>{t("appSubtitle")}</h2>
