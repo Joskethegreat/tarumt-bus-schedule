@@ -20,10 +20,21 @@
       rel="stylesheet"
     />
 
-    <script type="module" crossorigin src="/tarumt-bus-schedule/assets/index-ergM3csq.js"></script>
-    <link rel="stylesheet" crossorigin href="/tarumt-bus-schedule/assets/index-Cue5Red_.css">
+    <script>
+      // Pick the theme before first paint (saved choice, else system setting).
+      (function () {
+        var t = null;
+        try { t = localStorage.getItem("tarumt-bus-theme"); } catch (e) {}
+        if (t !== "dark" && t !== "light") {
+          t = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      })();
+    </script>
+    <script type="module" crossorigin src="/tarumt-bus-schedule/assets/index-vAcDyZtd.js"></script>
+    <link rel="stylesheet" crossorigin href="/tarumt-bus-schedule/assets/index-vCG_Jo01.css">
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root"></div>
   </body>
 </html>
