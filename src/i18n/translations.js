@@ -39,9 +39,11 @@ export const translations = {
     viewDirection: "View Direction",
 
     footerDesigned: "Designed by Joshua Lau.",
-    footerContactPrefix: "Please contact",
-    footerContactSuffix: "to report any issues or suggestions.",
     footerLastUpdated: "Last updated:",
+    footerInfo: "Site information",
+    footerTerms: "Terms of Use",
+    footerPrivacy: "Privacy Policy",
+    footerCredits: "Credits",
 
     feedbackOpen: "Give feedback",
     feedbackTitle: "How's your experience?",
@@ -113,9 +115,11 @@ export const translations = {
     viewDirection: "Lihat Arah",
 
     footerDesigned: "Direka oleh Joshua Lau.",
-    footerContactPrefix: "Sila hubungi",
-    footerContactSuffix: "untuk melaporkan sebarang isu atau cadangan.",
     footerLastUpdated: "Kemas kini terakhir:",
+    footerInfo: "Maklumat laman",
+    footerTerms: "Terma Penggunaan",
+    footerPrivacy: "Dasar Privasi",
+    footerCredits: "Penghargaan",
 
     feedbackOpen: "Beri maklum balas",
     feedbackTitle: "Bagaimana pengalaman anda?",
@@ -185,9 +189,11 @@ export const translations = {
     viewDirection: "查看路线",
 
     footerDesigned: "由 Joshua Lau 设计。",
-    footerContactPrefix: "请联系",
-    footerContactSuffix: "以报告任何问题或建议。",
     footerLastUpdated: "最后更新：",
+    footerInfo: "网站信息",
+    footerTerms: "使用条款",
+    footerPrivacy: "隐私政策",
+    footerCredits: "致谢",
 
     feedbackOpen: "提供反馈",
     feedbackTitle: "您的体验如何？",

@@ -382,3 +382,29 @@ select option[value=""] {
 :root[data-theme="dark"] .bus-logo-dark {
   display: block;
 }
+
+/* Terms / Privacy / Credits links */
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0 20px;
+  margin-top: 12px;
+}
+
+.footer-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: #c7c7cc;
+  font-size: 0.875rem;
+  letter-spacing: 0.01em;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(199, 199, 204, 0.4);
+  transition: opacity 100ms ease-out;
+}
+
+.footer-links a:active {
+  opacity: 0.5;
+}

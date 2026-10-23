@@ -94,8 +94,13 @@ function App() {
           {t("footerDesigned")}
         </p>
 
-        <p className="footer-text">{t("footerContactPrefix")} <i>joshuahaojie@gmail.com</i> {t("footerContactSuffix")}</p>
         <p className="footer-text"><i>{t("footerLastUpdated")} 23 Oct 2026</i></p>
+
+        <nav className="footer-links" aria-label={t("footerInfo")}>
+          <a href={`${import.meta.env.BASE_URL}terms.html`}>{t("footerTerms")}</a>
+          <a href={`${import.meta.env.BASE_URL}privacy.html`}>{t("footerPrivacy")}</a>
+          <a href={`${import.meta.env.BASE_URL}credits.html`}>{t("footerCredits")}</a>
+        </nav>
       </footer>
       </div>
     </>
