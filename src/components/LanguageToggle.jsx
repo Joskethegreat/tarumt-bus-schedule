@@ -1,6 +1,6 @@
 import { useLanguage } from "../context/LanguageContext";
 
-const FLAGS = { en: "🇬🇧", ms: "🇲🇾", zh: "🇨🇳" };
+const CODES = { en: "EN", ms: "BM", zh: "CH" };
 const NAMES = { en: "English", ms: "Bahasa Melayu", zh: "中文" };
 
 export default function LanguageToggle() {
@@ -14,7 +14,7 @@ export default function LanguageToggle() {
       aria-label={`Switch language (current: ${NAMES[language]})`}
       title={NAMES[language]}
     >
-      <span aria-hidden="true">{FLAGS[language]}</span>
+      <span aria-hidden="true">{CODES[language]}</span>
     </button>
   );
 }
