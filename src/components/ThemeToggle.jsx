@@ -4,7 +4,7 @@ import { applyTheme, currentTheme } from "../utils/theme";
 import "../styles/ThemeToggle.css";
 import "../styles/glass.css";
 
-// Sun/moon button under the coffee button; flips light and dark mode.
+// Button under the coffee button that flips light and dark mode (icon shows the current mode).
 export default function ThemeToggle() {
   const { t } = useLanguage();
   const [theme, setTheme] = useState(currentTheme);
@@ -25,7 +25,7 @@ export default function ThemeToggle() {
       aria-label={label}
       title={label}
     >
-      <span aria-hidden="true">{theme === "dark" ? "☀️" : "🌙"}</span>
+      <span aria-hidden="true">{theme === "dark" ? "🌙" : "☀️"}</span>
     </button>
   );
 }
