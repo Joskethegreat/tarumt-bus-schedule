@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Credits · TARUMT Bus Schedule (Unofficial)</title>
+    <meta name="description" content="Credits and data sources for the unofficial TARUMT Bus Schedule website." />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <script>
+      // Match the app's saved light/dark choice before first paint (default light).
+      (function () {
+        var t = null;
+        try { t = localStorage.getItem("tarumt-bus-theme"); } catch (e) {}
+        document.documentElement.setAttribute("data-theme", t === "dark" ? "dark" : "light");
+      })();
+    </script>
+    <link rel="stylesheet" href="legal.css" />
+  </head>
+  <body data-page="credits">
+    <header class="bar">
+      <a class="back" href="./">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7" /></svg>
+        <span data-ui="back">Bus Schedule</span>
+      </a>
+      <div class="langs" role="group" aria-label="Language">
+        <button type="button" data-set="en" aria-pressed="true">EN</button>
+        <button type="button" data-set="ms" aria-pressed="false">BM</button>
+        <button type="button" data-set="zh" aria-pressed="false">CH</button>
+      </div>
+    </header>
+    <main>
+      <article data-lang="en">
+        <h1>Credits</h1>
+        <p class="updated">Last updated: 24 October 2026</p>
+        <p class="summary">This site is built with help from these people and projects. Thank you!</p>
+        <section>
+          <h2>Schedule data</h2>
+          <p>Bus times and routes come from the <a href="https://www.tarc.edu.my/dsa/a/transportation/bus-schedule/" target="_blank" rel="noopener noreferrer">TARUMT Department of Student Affairs bus schedule</a>. They are copied by hand, so the official schedule always wins.</p>
+        </section>
+        <section>
+          <h2>Maps</h2>
+          <ul>
+            <li><a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">© OpenStreetMap contributors</a>. Map data is available under the Open Database License.</li>
+            <li><a href="https://leafletjs.com/" target="_blank" rel="noopener noreferrer">Leaflet</a>: BSD 2-Clause License.</li>
+            <li><a href="https://react-leaflet.js.org/" target="_blank" rel="noopener noreferrer">React Leaflet</a>: Hippocratic License 2.1.</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Built with</h2>
+          <ul>
+            <li><a href="https://react.dev/" target="_blank" rel="noopener noreferrer">React</a>: MIT License.</li>
+            <li><a href="https://vite.dev/" target="_blank" rel="noopener noreferrer">Vite</a>: MIT License.</li>
+            <li><a href="https://github.com/parallax/jsPDF" target="_blank" rel="noopener noreferrer">jsPDF</a>: MIT License (PDF downloads).</li>
+            <li><a href="https://rsms.me/inter/" target="_blank" rel="noopener noreferrer">Inter</a> typeface by Rasmus Andersson: SIL Open Font License 1.1.</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Services</h2>
+          <ul>
+            <li>GitHub Pages: hosting.</li>
+            <li>Web3Forms: feedback delivery.</li>
+            <li>Abacus: visit counter.</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Trademarks</h2>
+          <p>“TARUMT” and its logo belong to Tunku Abdul Rahman University of Management and Technology. Hino is a trademark of Hino Motors. Their use here does not mean they endorse this site.</p>
+        </section>
+        <section>
+          <h2>Design and development</h2>
+          <p>Joshua Lau.</p>
+        </section>
+      </article>
+      <article data-lang="ms" hidden>
+        <h1>Penghargaan</h1>
+        <p class="updated">Kemas kini terakhir: 24 Oktober 2026</p>
+        <p class="summary">Laman ini dibina dengan bantuan individu dan projek berikut. Terima kasih!</p>
+        <section>
+          <h2>Data jadual</h2>
+          <p>Masa dan laluan bas diambil daripada <a href="https://www.tarc.edu.my/dsa/a/transportation/bus-schedule/" target="_blank" rel="noopener noreferrer">jadual bas Jabatan Hal Ehwal Pelajar TARUMT</a>. Ia disalin secara manual, jadi jadual rasmi sentiasa diutamakan.</p>
+        </section>
+        <section>
+          <h2>Peta</h2>
+          <ul>
+            <li><a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">© Penyumbang OpenStreetMap</a>. Data peta tersedia di bawah Open Database License.</li>
+            <li><a href="https://leafletjs.com/" target="_blank" rel="noopener noreferrer">Leaflet</a>: Lesen BSD 2-Clause.</li>
+            <li><a href="https://react-leaflet.js.org/" target="_blank" rel="noopener noreferrer">React Leaflet</a>: Hippocratic License 2.1.</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Dibina dengan</h2>
+          <ul>
+            <li><a href="https://react.dev/" target="_blank" rel="noopener noreferrer">React</a>: Lesen MIT.</li>
+            <li><a href="https://vite.dev/" target="_blank" rel="noopener noreferrer">Vite</a>: Lesen MIT.</li>
+            <li><a href="https://github.com/parallax/jsPDF" target="_blank" rel="noopener noreferrer">jsPDF</a>: Lesen MIT (muat turun PDF).</li>
+            <li>Fon <a href="https://rsms.me/inter/" target="_blank" rel="noopener noreferrer">Inter</a> oleh Rasmus Andersson: SIL Open Font License 1.1.</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Perkhidmatan</h2>
+          <ul>
+            <li>GitHub Pages: pengehosan.</li>
+            <li>Web3Forms: penghantaran maklum balas.</li>
+            <li>Abacus: kiraan lawatan.</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Tanda dagangan</h2>
+          <p>“TARUMT” dan logonya adalah milik Tunku Abdul Rahman University of Management and Technology. Hino ialah tanda dagangan Hino Motors. Penggunaannya di sini tidak bermakna mereka menyokong laman ini.</p>
+        </section>
+        <section>
+          <h2>Reka bentuk dan pembangunan</h2>
+          <p>Joshua Lau.</p>
+        </section>
+      </article>
+      <article data-lang="zh" hidden>
+        <h1>致谢</h1>
+        <p class="updated">最后更新：2026年10月24日</p>
+        <p class="summary">本网站的完成离不开以下人士和项目的帮助，谢谢！</p>
+        <section>
+          <h2>时刻表数据</h2>
+          <p>巴士时间和路线来自<a href="https://www.tarc.edu.my/dsa/a/transportation/bus-schedule/" target="_blank" rel="noopener noreferrer">TARUMT 学生事务处巴士时刻表</a>。数据为手动录入，一切以官方时刻表为准。</p>
+        </section>
+        <section>
+          <h2>地图</h2>
+          <ul>
+            <li><a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">© OpenStreetMap 贡献者</a>。地图数据依据 Open Database License 提供。</li>
+            <li><a href="https://leafletjs.com/" target="_blank" rel="noopener noreferrer">Leaflet</a>：BSD 2-Clause 许可证。</li>
+            <li><a href="https://react-leaflet.js.org/" target="_blank" rel="noopener noreferrer">React Leaflet</a>：Hippocratic License 2.1。</li>
+          </ul>
+        </section>
+        <section>
+          <h2>使用的技术</h2>
+          <ul>
+            <li><a href="https://react.dev/" target="_blank" rel="noopener noreferrer">React</a>：MIT 许可证。</li>
+            <li><a href="https://vite.dev/" target="_blank" rel="noopener noreferrer">Vite</a>：MIT 许可证。</li>
+            <li><a href="https://github.com/parallax/jsPDF" target="_blank" rel="noopener noreferrer">jsPDF</a>：MIT 许可证（PDF 下载）。</li>
+            <li>Rasmus Andersson 设计的 <a href="https://rsms.me/inter/" target="_blank" rel="noopener noreferrer">Inter</a> 字体：SIL Open Font License 1.1。</li>
+          </ul>
+        </section>
+        <section>
+          <h2>服务</h2>
+          <ul>
+            <li>GitHub Pages：网站托管。</li>
+            <li>Web3Forms：反馈传送。</li>
+            <li>Abacus：访问计数。</li>
+          </ul>
+        </section>
+        <section>
+          <h2>商标</h2>
+          <p>“TARUMT”及其标志属于 Tunku Abdul Rahman University of Management and Technology。Hino 是 Hino Motors 的商标。在此使用并不代表它们认可本网站。</p>
+        </section>
+        <section>
+          <h2>设计与开发</h2>
+          <p>Joshua Lau。</p>
+        </section>
+      </article>
+    </main>
+    <nav class="page-links" aria-label="Site information">
+      <a href="terms.html"><span data-ui="terms">Terms of Use</span></a>
+      <a href="privacy.html"><span data-ui="privacy">Privacy Policy</span></a>
+      <a href="credits.html" aria-current="page"><span data-ui="credits">Credits</span></a>
+    </nav>
+    <script src="legal.js"></script>
+  </body>
+</html>
