@@ -39,7 +39,7 @@ const holidayMelatiToCampus = [
   ...holidayToCampus,
 ];
 const holidayMelatiFromCampus = [
-  { note: "Bus Stop 3(CITC) > Bus Stop 1(CITC) > Melati Utama > Junction MU > DK Suites Apartment > PV12/10 > East Campus(Gate 7) > Bus Stop 3(CITC)" },
+  { note: "Bus Stop 3(CITC) > Bus Stop 1(CITC) > Melati Utama > Junction MU > DK Suites Apartment > PV12 > PV10 > East Campus(Gate 7) > Bus Stop 3(CITC)" },
   ...holidayFromCampus,
 ];
 
@@ -238,7 +238,7 @@ export const schedules = {
       },
       fromCampus: {
         monThu: [
-          { note: "Bus Stop 3(CITC) > Melati Utama > Junction MU > DK Suites Apartment > PV12/10 > East Campus(Gate 7) > Bus Stop 3(CITC)" },
+          { note: "Bus Stop 3(CITC) > Melati Utama > Junction MU > DK Suites Apartment > PV12 > PV10 > East Campus(Gate 7) > Bus Stop 3(CITC)" },
           { time: "10:15 AM"},
           { time: "12:30 PM"},
           { time: "1:15 PM"},
@@ -247,13 +247,13 @@ export const schedules = {
           { time: "4:20 PM"},
           { time: "5:20 PM"},
           { time: "6:10 PM"},
-          { note: "Bus Stop 3(CITC) > Bus Stop 1(CITC) > Melati Utama > Junction near LRT Taman Melati > PV9 > DK Suites Apartment > PV10/12 > TARUMT" },
+          { note: "Bus Stop 3(CITC) > Bus Stop 1(CITC) > Melati Utama > Junction near LRT Taman Melati > PV9 > DK Suites Apartment > PV12 > PV10 > TARUMT" },
           { time: "7:30 PM"},
           { time: "8:25 PM"},
           { time: "9:10 PM"},
         ],
         friday: [
-          { note: "Bus Stop 3(CITC) > Melati Utama > Junction MU > DK Suites Apartment > PV12/10 > East Campus(Gate 7) > Bus Stop 3(CITC)" },
+          { note: "Bus Stop 3(CITC) > Melati Utama > Junction MU > DK Suites Apartment > PV12 > PV10 > East Campus(Gate 7) > Bus Stop 3(CITC)" },
           { time: "10:10 AM" },
           { time: "11:10 AM" },
           { time: "12:00 PM" },
@@ -263,13 +263,13 @@ export const schedules = {
           { time: "4:20 PM" },
           { time: "5:20 PM" },
           { time: "6:10 PM" },
-          { note: "Bus Stop 3(CITC) > Melati Utama > Junction near LRT Taman Melati > PV9 > DK Suites Apartment > PV12/10 > TARUMT" },
+          { note: "Bus Stop 3(CITC) > Melati Utama > Junction near LRT Taman Melati > PV9 > DK Suites Apartment > PV12 > PV10 > TARUMT" },
           { time: "7:30 PM" },
           { time: "8:25 PM" },
           { time: "9:10 PM" },
         ],
         saturday: [
-          { note: "Bus Stop 3(CITC) > Bus Stop 1(CITC)> Melati Utama > Junction MU > DK Suites Apartment > PV12/10 > East Campus(Gate 7) > Bus Stop 3(CITC)" },
+          { note: "Bus Stop 3(CITC) > Bus Stop 1(CITC)> Melati Utama > Junction MU > DK Suites Apartment > PV12 > PV10 > East Campus(Gate 7) > Bus Stop 3(CITC)" },
           { time: "10:45 AM" },
           { time: "11:30 AM" },
           { time: "1:45 PM" },
@@ -415,7 +415,7 @@ export const schedules = {
     "pv10-12-15-16": {
       toCampus: {
         monThu: [
-          { note: "PV12/10 > Setapak Central > East Campus(Gate 7)" },
+          { note: "PV12 > PV10 > Setapak Central > East Campus(Gate 7)" },
           { time: "7:10 AM" },
           { time: "7:10 AM", note : "PV10" },
           { time: "7:10 AM", note : "PV12" },
@@ -439,7 +439,7 @@ export const schedules = {
           { time: "9:50 AM" },
         ],
         friday: [
-          { note: "PV12/10 > Setapak Central > East Campus(Gate 7)" },
+          { note: "PV12 > PV10 > Setapak Central > East Campus(Gate 7)" },
           { time: "7:10 AM", note : "PV10" },
           { time: "7:10 AM", note : "PV12" },
           { time: "7:20 AM" },
@@ -461,7 +461,7 @@ export const schedules = {
           { time: "9:50 AM" },
         ],
         saturday: [
-          { note: "PV12/10 > Columbia Hospital > Setapak Central > Kem Wardieburn > East Campus(Gate 7)" },
+          { note: "PV12 > PV10 > Columbia Hospital > Setapak Central > Kem Wardieburn > East Campus(Gate 7)" },
           { time: "7:10 AM" },
           { time: "7:40 AM" },
           { time: "8:20 AM" },
@@ -471,7 +471,7 @@ export const schedules = {
       },
       fromCampus: {
         monThu: [
-          { note: "Bus Stop 1(CITC) > Setapak Central > PV12/10 > East Campus(Gate 7) > Bus Stop 1/2(CITC)" },
+          { note: "Bus Stop 1(CITC) > Setapak Central > PV12 > PV10 > East Campus(Gate 7) > Bus Stop 1/2(CITC)" },
           { time: "9:50 AM" },
           { time: "10:10 AM" },
           { time: "10:15 AM" },
@@ -503,7 +503,7 @@ export const schedules = {
           { time: "3:25 PM" },
           { time: "3:30 PM" },
           { time: "3:40 PM" },
-          { note: "Bus Stop 1(CITC) > DK Suites Apartment > PV12/10 > Stop near Setapak Central > East Campus(Gate 7) > Bus Stop 1/2(CITC)" },
+          { note: "Bus Stop 1(CITC) > DK Suites Apartment > PV12 > PV10 > Stop near Setapak Central > East Campus(Gate 7) > Bus Stop 1/2(CITC)" },
           { time: "3:50 PM" },
           { time: "4:00 PM" },
           { time: "4:10 PM" },
@@ -525,13 +525,13 @@ export const schedules = {
           { time: "6:35 PM" },
           { time: "6:45 PM" },
           { time: "7:00 PM" },
-          { note: "Bus Stop 1(CITC) > Melati Utama > Junction near LRT Taman Melati > PV9 > DK Suites Apartment > PV10/12 > TARUMT" },
+          { note: "Bus Stop 1(CITC) > Melati Utama > Junction near LRT Taman Melati > PV9 > DK Suites Apartment > PV12 > PV10 > TARUMT" },
           { time: "7:30 PM" },
           { time: "8:25 PM" },
           { time: "9:10 PM" },
         ],
         friday: [
-          { note: "Bus Stop 1(CITC) > Setapak Central > PV12/10 > East Campus(Gate 7) > Bus Stop 1/2(CITC)" },
+          { note: "Bus Stop 1(CITC) > Setapak Central > PV12 > PV10 > East Campus(Gate 7) > Bus Stop 1/2(CITC)" },
           { time: "9:50 AM" },
           { time: "10:10 AM" },
           { time: "10:10 AM" },
@@ -557,7 +557,7 @@ export const schedules = {
           { time: "3:15 PM" },
           { time: "3:30 PM" },
           { time: "3:45 PM" },
-          { note: "Bus Stop 1(CITC) > DK Suites Apartment > PV12/10 > Stop near Setapak Central > East Campus(Gate 7) > Bus Stop 1/2(CITC)" },
+          { note: "Bus Stop 1(CITC) > DK Suites Apartment > PV12 > PV10 > Stop near Setapak Central > East Campus(Gate 7) > Bus Stop 1/2(CITC)" },
           { time: "4:00 PM" },
           { time: "4:10 PM" },
           { time: "4:20 PM" },
@@ -572,7 +572,7 @@ export const schedules = {
           { time: "6:10 PM" },
           { time: "6:20 PM" },
           { time: "6:45 PM" },
-          { note: "Bus Stop 1(CITC) > Melati Utama > Junction near LRT Taman Melati > PV9 > DK Suites Apartment > PV12/10 > TARUMT" },
+          { note: "Bus Stop 1(CITC) > Melati Utama > Junction near LRT Taman Melati > PV9 > DK Suites Apartment > PV12 > PV10 > TARUMT" },
           { time: "7:30 PM" },
           { time: "8:25 PM" },
           { time: "9:10 PM" },

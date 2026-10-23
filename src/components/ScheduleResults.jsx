@@ -2,6 +2,7 @@ import { useState } from "react";
 import { schedules } from "../data/schedules";
 import MapModal from "./MapModal";
 import { useLanguage } from "../context/LanguageContext";
+import { downloadSchedulePdf } from "../utils/schedulePdf";
 
 // Shows the filtered bus times, with a Mon-Thu / Friday / Saturday toggle
 // if the selected period has more than one day-group available.
@@ -11,6 +12,16 @@ export default function ScheduleResults({ periodId, routeId, direction, periodMe
   const [dayGroup, setDayGroup] = useState("monThu");
   const [mapOpen, setMapOpen] = useState(false);
   const [selectedNote, setSelectedNote] = useState(null);
+  const [saving, setSaving] = useState(false);
+
+  async function savePdf() {
+    setSaving(true);
+    try {
+      await downloadSchedulePdf({ periodMeta, routeMeta, direction, periodId, routeId });
+    } finally {
+      setSaving(false);
+    }
+  }
 
   // Look up the actual times from the nested schedules object.
   // Optional chaining (?.) prevents errors if data hasn't been filled in yet.
@@ -79,6 +90,19 @@ export default function ScheduleResults({ periodId, routeId, direction, periodMe
           ))}
         </ul>
       )}
+
+      <button
+        type="button"
+        className="save-pdf"
+        onClick={savePdf}
+        disabled={saving}
+        aria-label={t("savePdf")}
+        title={t("savePdf")}
+      >
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <path d="M12 3v12m0 0-4-4m4 4 4-4M5 21h14" />
+        </svg>
+      </button>
 
       <MapModal
         isOpen={mapOpen}

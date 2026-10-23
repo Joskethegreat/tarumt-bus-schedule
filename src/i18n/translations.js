@@ -4,9 +4,11 @@
 export const translations = {
   en: {
     appSubtitle: "Bus Schedule Finder",
+    disclaimerButton: "Disclaimer",
+    disclaimerDismiss: "Got it",
     introText: "Search your bus schedule easily.",
     disclaimer:
-      "(Disclaimer: This is not an official TARUMT website; schedules and routes may be inaccurate!)",
+      "This is not an official TARUMT website. Schedules and routes may be inaccurate.",
 
     busRouteLabel: "Bus Route",
     selectRoute: "Select a Route",
@@ -23,6 +25,8 @@ export const translations = {
     timeHeading: "Time:",
     noScheduleData: "No schedule data entered yet for this combination.",
     clickToViewRoute: "Click to view route",
+    savePdf: "Save as PDF",
+    savePdfSaving: "Saving...",
 
     shareTitle: "Share to your friends!",
     visitsLabel: "Visits:",
@@ -48,6 +52,21 @@ export const translations = {
     feedbackSend: "Send feedback",
     feedbackClose: "Close",
     feedbackThanks: "Thanks for your feedback!",
+    coffeeLabel: "Buy me a coffee",
+    coffeeTitle: "Buy me a coffee ☕",
+    coffeeText: "Enjoying the site? Your support helps keep it running. Thank you!",
+    coffeeScan: "Scan with your banking app or e-wallet, then choose your own amount.",
+    coffeeQrAlt: "DuitNow QR code for donations",
+    helpOpen: "Help and FAQ",
+    helpTitle: "Frequently asked questions",
+    helpItems: [
+      { q: "Is this the official TARUMT bus schedule?", a: "No. This is a student-made site. Always check official [TARUMT schedule](https://www.tarc.edu.my/dsa/a/transportation/bus-schedule/) if something looks wrong." },
+      { q: "How often is the schedule updated?", a: "It is updated whenever a new schedule is released. See \"Last updated\" at the bottom of the page." },
+      { q: "Why is my route or time missing?", a: "Some combinations may not have been entered yet. Try another semester type, or send us feedback." },
+      { q: "What does \"Click to view route\" show?", a: "It opens a map of the stops this bus passes through, in order. Tap a pin for directions." },
+      { q: "What do tags like PV10 or Teratai Residency mean?", a: "They show which pick-up point a particular departure serves, when buses split by area." },
+      { q: "How do I report a mistake?", a: "Tap the chat bubble to send feedback, or email the address in the footer." },
+    ],
     feedbackSending: "Sending...",
     feedbackError: "Could not send. Please try again.",
     feedbackSuggestLow: ["Schedule was wrong", "Hard to use", "Route map issue", "Too slow"],
@@ -57,9 +76,11 @@ export const translations = {
 
   ms: {
     appSubtitle: "Pencari Jadual Bas",
+    disclaimerButton: "Penafian",
+    disclaimerDismiss: "Faham",
     introText: "Cari jadual bas anda dengan mudah.",
     disclaimer:
-      "(Penafian: Ini bukan laman web rasmi TARUMT; jadual dan laluan mungkin tidak tepat!)",
+      "Ini bukan laman web rasmi TARUMT. Jadual dan laluan mungkin tidak tepat.",
 
     busRouteLabel: "Laluan Bas",
     selectRoute: "Pilih Laluan",
@@ -76,6 +97,8 @@ export const translations = {
     timeHeading: "Masa:",
     noScheduleData: "Tiada data jadual dimasukkan lagi untuk kombinasi ini.",
     clickToViewRoute: "Klik untuk lihat laluan",
+    savePdf: "Simpan sebagai PDF",
+    savePdfSaving: "Menyimpan...",
 
     shareTitle: "Kongsi dengan rakan anda!",
     visitsLabel: "Lawatan:",
@@ -101,6 +124,21 @@ export const translations = {
     feedbackSend: "Hantar maklum balas",
     feedbackClose: "Tutup",
     feedbackThanks: "Terima kasih atas maklum balas anda!",
+    coffeeLabel: "Belanja saya kopi",
+    coffeeTitle: "Belanja saya kopi ☕",
+    coffeeText: "Suka laman ini? Sokongan anda membantu ia terus berjalan. Terima kasih!",
+    coffeeScan: "Imbas dengan aplikasi bank atau e-dompet anda, kemudian masukkan sebarang jumlah.",
+    coffeeQrAlt: "Kod QR DuitNow untuk derma",
+    helpOpen: "Bantuan dan Soalan Lazim",
+    helpTitle: "Soalan lazim",
+    helpItems: [
+      { q: "Adakah ini jadual bas rasmi TARUMT?", a: "Tidak. Ini ialah laman buatan pelajar. Sentiasa semak [jadual rasmi TARUMT](https://www.tarc.edu.my/dsa/a/transportation/bus-schedule/) jika ada yang tidak kena." },
+      { q: "Berapa kerap jadual dikemas kini?", a: "Ia dikemas kini apabila jadual baharu dikeluarkan. Lihat \"Kemas kini terakhir\" di bahagian bawah halaman." },
+      { q: "Mengapa laluan atau masa saya tiada?", a: "Sesetengah kombinasi mungkin belum dimasukkan. Cuba jenis semester lain, atau hantar maklum balas." },
+      { q: "Apa yang ditunjukkan oleh \"Klik untuk lihat laluan\"?", a: "Ia membuka peta perhentian yang dilalui bas ini mengikut urutan. Ketik pin untuk arah." },
+      { q: "Apakah maksud tag seperti PV10 atau Teratai Residency?", a: "Ia menunjukkan titik ambil yang dilayan oleh sesuatu perjalanan, apabila bas dibahagikan mengikut kawasan." },
+      { q: "Bagaimana melaporkan kesilapan?", a: "Ketik gelembung sembang untuk hantar maklum balas, atau e-mel alamat di pengaki." },
+    ],
     feedbackSending: "Menghantar...",
     feedbackError: "Gagal dihantar. Sila cuba lagi.",
     feedbackSuggestLow: ["Jadual salah", "Sukar digunakan", "Masalah peta laluan", "Terlalu perlahan"],
@@ -110,8 +148,10 @@ export const translations = {
 
   zh: {
     appSubtitle: "巴士时刻表查询",
+    disclaimerButton: "免责声明",
+    disclaimerDismiss: "知道了",
     introText: "轻松查询您的巴士时刻表。",
-    disclaimer: "（免责声明：本网站并非TARUMT官方网站；时刻表与路线可能不准确！）",
+    disclaimer: "本网站并非TARUMT官方网站。时刻表与路线可能不准确。",
 
     busRouteLabel: "巴士路线",
     selectRoute: "选择路线",
@@ -128,6 +168,8 @@ export const translations = {
     timeHeading: "时间：",
     noScheduleData: "此组合尚未输入时刻表数据。",
     clickToViewRoute: "点击查看路线",
+    savePdf: "保存为 PDF",
+    savePdfSaving: "保存中...",
 
     shareTitle: "分享给朋友！",
     visitsLabel: "访问量：",
@@ -152,6 +194,21 @@ export const translations = {
     feedbackSend: "发送反馈",
     feedbackClose: "关闭",
     feedbackThanks: "感谢您的反馈！",
+    coffeeLabel: "请我喝杯咖啡",
+    coffeeTitle: "请我喝杯咖啡 ☕",
+    coffeeText: "喜欢这个网站吗？您的支持有助于它持续运行。谢谢！",
+    coffeeScan: "用银行应用或电子钱包扫描，然后输入任意金额。",
+    coffeeQrAlt: "捐赠用 DuitNow 二维码",
+    helpOpen: "帮助与常见问题",
+    helpTitle: "常见问题",
+    helpItems: [
+      { q: "这是 TARUMT 官方巴士时刻表吗？", a: "不是。这是学生制作的网站。如有疑问，请以[TARUMT 官方时刻表](https://www.tarc.edu.my/dsa/a/transportation/bus-schedule/)为准。" },
+      { q: "时刻表多久更新一次？", a: "每当发布新时刻表时就会更新。请查看页面底部的“最后更新”。" },
+      { q: "为什么找不到我的路线或时间？", a: "部分组合可能尚未录入。请尝试其他学期类型，或向我们反馈。" },
+      { q: "“点击查看路线”会显示什么？", a: "它会打开地图，按顺序显示这趟巴士经过的站点。点击图钉可查看路线指引。" },
+      { q: "PV10 或 Teratai Residency 等标签是什么意思？", a: "当巴士按区域分开行驶时，标签表示该班次服务的上车点。" },
+      { q: "如何报告错误？", a: "点击聊天气泡发送反馈，或发邮件到页脚的地址。" },
+    ],
     feedbackSending: "发送中...",
     feedbackError: "发送失败，请重试。",
     feedbackSuggestLow: ["时刻表有误", "不好用", "路线地图有问题", "太慢了"],

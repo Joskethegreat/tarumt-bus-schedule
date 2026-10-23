@@ -8,6 +8,9 @@ import ScheduleResults from "./components/ScheduleResults";
 import ShareButtons from "./components/ShareButtons";
 import LanguageToggle from "./components/LanguageToggle";
 import FeedbackButton from "./components/FeedbackButton";
+import HelpButton from "./components/HelpButton";
+import CoffeeButton from "./components/CoffeeButton";
+import Disclaimer from "./components/Disclaimer";
 import { getVisitCount } from "./utils/visitCount";
 import { useLanguage } from "./context/LanguageContext";
 import "./App.css";
@@ -62,6 +65,8 @@ function App() {
       </svg>
       <LanguageToggle />
       <FeedbackButton />
+      <HelpButton />
+      <CoffeeButton />
       <div className="app">
       <img
         ref={busLogoRef}
@@ -78,9 +83,7 @@ function App() {
       <p>
         {t("introText")}
       </p>
-      <p>
-        <i>{t("disclaimer")}</i>
-      </p>
+      <Disclaimer />
       <div style={{ height: "20px" }}></div> 
 
       <RouteSelect routes={routes} value={routeId} onChange={setRouteId} />
@@ -105,7 +108,7 @@ function App() {
         </p>
 
         <p className="footer-text">{t("footerContactPrefix")} <i>joshuahaojie@gmail.com</i> {t("footerContactSuffix")}</p>
-        <p className="footer-text"><i>{t("footerLastUpdated")} 13 Oct 2026</i></p>
+        <p className="footer-text"><i>{t("footerLastUpdated")} 23 Oct 2026</i></p>
       </footer>
       </div>
     </>

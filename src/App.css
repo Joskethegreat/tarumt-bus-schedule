@@ -337,3 +337,32 @@ select option[value=""] {
 .tab:disabled:active {
   transform: none;
 }
+
+.save-pdf {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin: 4px auto 0;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: none;
+  color: #8e8e93;
+  cursor: pointer;
+  transition: transform 100ms ease-out, color 150ms ease, opacity 150ms ease;
+}
+
+.save-pdf:hover {
+  color: #6c6c70;
+}
+
+.save-pdf:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+.save-pdf:disabled {
+  opacity: 0.6;
+  cursor: default;
+}

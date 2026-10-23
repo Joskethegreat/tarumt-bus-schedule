@@ -1,0 +1,117 @@
+/* Sits under the feedback button (top 72 + 44 + 12 gap). */
+.help-toggle {
+  position: fixed;
+  top: 128px;
+  right: 16px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #007aff;
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 1000;
+  transition: transform 100ms ease-out;
+}
+
+.help-toggle:active {
+  transform: scale(0.92);
+}
+
+/* Grows out of its trigger, like the feedback box. */
+.help-panel.glass.glass {
+  position: fixed;
+  top: 180px;
+  right: 16px;
+  width: min(340px, calc(100vw - 32px));
+  max-height: calc(100vh - 200px);
+  overflow-y: auto;
+  padding: 18px;
+  border-radius: 22px;
+  background: #fafafc;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  z-index: 1100;
+  text-align: left;
+  transform-origin: top right;
+  animation: help-in 0.32s cubic-bezier(0.2, 0.9, 0.3, 1) both;
+}
+
+@keyframes help-in {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.help-title {
+  margin: 0 0 10px;
+  text-align: center;
+  font-size: 1.15rem;
+  letter-spacing: -0.02em;
+  color: #1d1d1f;
+}
+
+.help-item {
+  border-top: 1px solid rgba(60, 60, 67, 0.15);
+}
+
+.help-item summary {
+  padding: 12px 24px 12px 0;
+  min-height: 44px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #1d1d1f;
+  cursor: pointer;
+  list-style: none;
+  position: relative;
+}
+
+.help-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.help-item summary::after {
+  content: "+";
+  position: absolute;
+  right: 4px;
+  top: 10px;
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: #007aff;
+  transition: transform 0.2s ease;
+}
+
+.help-item[open] summary::after {
+  transform: rotate(45deg);
+}
+
+.help-item summary:active {
+  opacity: 0.5;
+}
+
+.help-item p {
+  margin: 0 0 12px;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: #3c3c43;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .help-panel.glass.glass {
+    animation: none;
+  }
+}
+
+.help-item p a {
+  color: #007aff;
+  text-decoration: underline;
+}
