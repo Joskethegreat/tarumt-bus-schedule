@@ -1,0 +1,145 @@
+/* Design tokens. The theme is chosen by <html data-theme="light|dark">. */
+:root,
+:root[data-theme="light"] {
+  --scheme: light;
+
+  --page-a: #ffffff;
+  --page-b: #dad9d9;
+
+  --t1: #333333; /* strongest text */
+  --t2: #444444;
+  --t3: #666666; /* muted */
+
+  --surface: #fafafc; /* opaque panels */
+  --surface-2: #f4f4f6;
+  --ink: #1d1d1f; /* text on surfaces */
+  --ink-2: #3c3c43;
+  --hairline: rgba(60, 60, 67, 0.15);
+  --divider: #cccccc;
+
+  --blue: #007aff;
+  --link: #0066cc;
+  --link-hover: #0052a3;
+  --chip-bg: rgba(0, 122, 255, 0.12);
+  --chip-bg-press: rgba(0, 122, 255, 0.25);
+  --chip-text: #0062cc;
+  --danger: #d70015;
+  --danger-title: #c0392b;
+  --star-off: rgba(60, 60, 67, 0.3);
+  --star-on: #ffb800;
+
+  --field-bg: #ffffff;
+  --field-text: #3c3c3c;
+  --field-hi: #e8e8ed;
+  --input-bg: #ffffff;
+  --input-border: rgba(60, 60, 67, 0.2);
+
+  --results-bg: rgba(255, 255, 255, 0.1);
+  --results-border: rgba(255, 255, 255, 0.215);
+  --tab-bg: rgba(0, 0, 0, 0.1);
+  --tab-border: rgba(0, 0, 0, 0.2);
+  --tab-text: #000000;
+  --tab-active-bg: #333333;
+  --tab-active-text: #ffffff;
+  --tab-disabled-bg: rgba(0, 0, 0, 0.05);
+  --list-bg: rgba(202, 202, 202, 0.15);
+  --list-border: rgba(172, 172, 172, 0.388);
+  --footer-bg: #333333;
+  --icon: #8e8e93;
+  --icon-hover: #6c6c70;
+
+  --glass-a: rgba(255, 255, 255, 0.55);
+  --glass-b: rgba(255, 255, 255, 0.18);
+  --glass-c: rgba(255, 255, 255, 0.3);
+  --glass-border: rgba(255, 255, 255, 0.55);
+  --hi-top: rgba(255, 255, 255, 0.95);
+  --hi-bottom: rgba(255, 255, 255, 0.35);
+  --hi-left: rgba(255, 255, 255, 0.5);
+  --hi-right: rgba(255, 255, 255, 0.25);
+  --hi-glow: rgba(255, 255, 255, 0.35);
+  --sheen: rgba(255, 255, 255, 0.55);
+
+  --modal-bg: rgba(255, 255, 255, 0.82);
+  --modal-border: rgba(255, 255, 255, 0.5);
+  --stops-bg: rgba(255, 255, 255, 0.5);
+  --stop-item-bg: rgba(255, 255, 255, 0.85);
+  --close-bg: rgba(120, 120, 128, 0.16);
+  --grabber: rgba(60, 60, 67, 0.3);
+  --map-arrow: #0056b3;
+  --map-arrow-halo: #ffffff;
+  --map-tiles: none;
+}
+
+:root[data-theme="dark"] {
+  --scheme: dark;
+
+  --page-a: #1c1c1e;
+  --page-b: #0b0b0c;
+
+  --t1: #f2f2f7;
+  --t2: #e0e0e6;
+  --t3: #98989f;
+
+  --surface: #2c2c2e;
+  --surface-2: #3a3a3c;
+  --ink: #f5f5f7;
+  --ink-2: #aeaeb2;
+  --hairline: rgba(235, 235, 245, 0.18);
+  --divider: rgba(255, 255, 255, 0.15);
+
+  --blue: #0a84ff;
+  --link: #64b5ff;
+  --link-hover: #9ccfff;
+  --chip-bg: rgba(10, 132, 255, 0.22);
+  --chip-bg-press: rgba(10, 132, 255, 0.4);
+  --chip-text: #7cc0ff;
+  --danger: #ff6961;
+  --danger-title: #ff6961;
+  --star-off: rgba(235, 235, 245, 0.3);
+  --star-on: #ffc933;
+
+  --field-bg: #2c2c2e;
+  --field-text: #f2f2f7;
+  --field-hi: #48484a;
+  --input-bg: #1c1c1e;
+  --input-border: rgba(255, 255, 255, 0.2);
+
+  --results-bg: rgba(255, 255, 255, 0.06);
+  --results-border: rgba(255, 255, 255, 0.1);
+  --tab-bg: rgba(255, 255, 255, 0.1);
+  --tab-border: rgba(255, 255, 255, 0.18);
+  --tab-text: #f2f2f7;
+  --tab-active-bg: #f2f2f7;
+  --tab-active-text: #111111;
+  --tab-disabled-bg: rgba(255, 255, 255, 0.04);
+  --list-bg: rgba(255, 255, 255, 0.05);
+  --list-border: rgba(255, 255, 255, 0.12);
+  --footer-bg: #1c1c1e;
+  --icon: #8e8e93;
+  --icon-hover: #aeaeb2;
+
+  --glass-a: rgba(255, 255, 255, 0.16);
+  --glass-b: rgba(255, 255, 255, 0.05);
+  --glass-c: rgba(255, 255, 255, 0.09);
+  --glass-border: rgba(255, 255, 255, 0.22);
+  --hi-top: rgba(255, 255, 255, 0.35);
+  --hi-bottom: rgba(255, 255, 255, 0.1);
+  --hi-left: rgba(255, 255, 255, 0.18);
+  --hi-right: rgba(255, 255, 255, 0.08);
+  --hi-glow: rgba(255, 255, 255, 0.07);
+  --sheen: rgba(255, 255, 255, 0.2);
+
+  --modal-bg: rgba(44, 44, 46, 0.86);
+  --modal-border: rgba(255, 255, 255, 0.14);
+  --stops-bg: rgba(255, 255, 255, 0.05);
+  --stop-item-bg: rgba(255, 255, 255, 0.09);
+  --close-bg: rgba(120, 120, 128, 0.36);
+  --grabber: rgba(235, 235, 245, 0.3);
+  --map-arrow: #7cc0ff;
+  --map-arrow-halo: #000000;
+  --map-tiles: invert(1) hue-rotate(180deg) brightness(0.95) contrast(0.9);
+}
+
+html {
+  color-scheme: var(--scheme);
+}

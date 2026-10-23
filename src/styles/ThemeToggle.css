@@ -1,0 +1,21 @@
+/* Under the coffee button (top 184 + 44 + 12 gap). */
+.theme-toggle {
+  position: fixed;
+  top: 240px;
+  right: 16px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 1000;
+  transition: transform 100ms ease-out;
+}
+
+.theme-toggle:active {
+  transform: scale(0.92);
+}

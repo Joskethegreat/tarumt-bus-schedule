@@ -39,7 +39,7 @@
   width: min(360px, 100%);
   padding: 22px;
   border-radius: 22px;
-  background: #fafafc;
+  background: var(--surface);
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.3);
   text-align: center;
   animation: disclaimer-pop 0.3s cubic-bezier(0.2, 0.9, 0.3, 1) both;
@@ -49,14 +49,14 @@
   margin: 0 0 8px;
   font-size: 1.15rem;
   letter-spacing: -0.02em;
-  color: #c0392b;
+  color: var(--danger-title);
 }
 
 .disclaimer-body {
   margin: 0 0 16px;
   font-size: 0.95rem;
   line-height: 1.45;
-  color: #1d1d1f;
+  color: var(--ink);
 }
 
 .disclaimer-close {
@@ -64,7 +64,7 @@
   padding: 0 24px;
   border: none;
   border-radius: 20px;
-  background: #007aff;
+  background: var(--blue);
   color: #fff;
   font-size: 0.95rem;
   font-weight: 600;

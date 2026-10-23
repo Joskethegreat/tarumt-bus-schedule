@@ -20,6 +20,17 @@
       rel="stylesheet"
     />
 
+    <script>
+      // Pick the theme before first paint (saved choice, else system setting).
+      (function () {
+        var t = null;
+        try { t = localStorage.getItem("tarumt-bus-theme"); } catch (e) {}
+        if (t !== "dark" && t !== "light") {
+          t = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

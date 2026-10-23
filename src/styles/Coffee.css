@@ -30,7 +30,7 @@
   overflow-y: auto;
   padding: 18px;
   border-radius: 22px;
-  background: #fafafc;
+  background: var(--surface);
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
   z-index: 1100;
@@ -54,13 +54,13 @@
   margin: 0 0 4px;
   font-size: 1.15rem;
   letter-spacing: -0.02em;
-  color: #1d1d1f;
+  color: var(--ink);
 }
 
 .coffee-text {
   margin: 0 0 12px;
   font-size: 0.85rem;
-  color: #3c3c43;
+  color: var(--ink-2);
 }
 
 .coffee-qr {
@@ -74,7 +74,7 @@
 .coffee-hint {
   margin: 10px 0 0;
   font-size: 0.8rem;
-  color: #3c3c43;
+  color: var(--ink-2);
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -10,11 +10,13 @@ import LanguageToggle from "./components/LanguageToggle";
 import FeedbackButton from "./components/FeedbackButton";
 import HelpButton from "./components/HelpButton";
 import CoffeeButton from "./components/CoffeeButton";
+import ThemeToggle from "./components/ThemeToggle";
 import Disclaimer from "./components/Disclaimer";
 import { getVisitCount } from "./utils/visitCount";
 import { useLanguage } from "./context/LanguageContext";
 import "./App.css";
 import logo from "./assets/bus-logo.png";
+import logoDark from "./assets/bus-logo-dark.png";
 
 function App() {
   const { t } = useLanguage();
@@ -50,11 +52,17 @@ function App() {
       <FeedbackButton />
       <HelpButton />
       <CoffeeButton />
+      <ThemeToggle />
       <div className="app">
       <img
         src={logo}
         alt="TARUMT Logo"
         className="bus-logo"
+      />
+      <img
+        src={logoDark}
+        alt="TARUMT Logo"
+        className="bus-logo bus-logo-dark"
       />
       <h1>TARUMT</h1>
       <h2>{t("appSubtitle")}</h2>

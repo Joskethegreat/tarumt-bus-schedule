@@ -8,7 +8,8 @@
 body {
   margin: 0;
   font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  background: linear-gradient(to bottom right, #ffffff, #dad9d9);
+  background: linear-gradient(to bottom right, var(--page-a), var(--page-b));
+  color: var(--t2);
   min-height: 100vh;
   position: relative;
   overflow-x: hidden;
@@ -45,7 +46,7 @@ body {
 }
 
 .app > p {
-  color: #333;
+  color: var(--t1);
 }
 
 .bus-logo {
@@ -59,7 +60,7 @@ h1 {
   font-size: 2.5rem;
   font-weight: 800;
   margin-bottom: 0;
-  color: #444;
+  color: var(--t2);
 }
 
 .share-section {
@@ -69,7 +70,7 @@ h1 {
 
 .share-title {
   font-weight: 700;
-  color: #444;
+  color: var(--t2);
   margin-bottom: 14px;
 }
 
@@ -91,7 +92,7 @@ h1 {
   cursor: pointer;
   text-decoration: none;
   font-size: 0.75rem;
-  color: #444;
+  color: var(--t2);
 }
 
 .share-btn svg {
@@ -128,11 +129,11 @@ h2 {
   font-weight: 400;
   font-size: 1.8rem;
   margin-top: 4px;
-  color: #333;
+  color: var(--t1);
 }
 
 h3 {
-  color: #444;
+  color: var(--t2);
 }
 
 .field {
@@ -143,7 +144,7 @@ label {
   display: block;
   font-weight: 600;
   margin-bottom: 8px;
-  color: #333;
+  color: var(--t1);
 }
 
 select {
@@ -152,31 +153,31 @@ select {
   font-size: 1rem;
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.3);
-  background: #fff;
+  background: var(--field-bg);
   appearance: none;
   font-style: italic;
-  color: #3c3c3c;
+  color: var(--field-text);
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 select:hover {
-  background: #fff;
+  background: var(--field-bg);
   border-color: rgba(255, 255, 255, 0.4);
 }
 
 select:focus {
-  background: #fff;
+  background: var(--field-bg);
   border-color: rgba(255, 255, 255, 0.5);
   outline: none;
 }
 
 .results {
   margin-top: 32px;
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--results-bg);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.215);
+  border: 1px solid var(--results-border);
   border-radius: 20px;
   padding: 20px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
@@ -184,7 +185,7 @@ select:focus {
 
 .route-info p {
   margin: 4px 0;
-  color: #444;
+  color: var(--t2);
 }
 
 .tabs {
@@ -197,28 +198,28 @@ select:focus {
   flex: 1;
   padding: 10px;
   border-radius: 12px;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  background: rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--tab-border);
+  background: var(--tab-bg);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   cursor: pointer;
   font-size: 0.9rem;
-  color: #000;
+  color: var(--tab-text);
 }
 
 .tab.active {
-  background: #333;
-  color: white;
-  border-color: #333;
+  background: var(--tab-active-bg);
+  color: var(--tab-active-text);
+  border-color: var(--tab-active-bg);
 }
 
 .time-list {
   list-style: none;
   padding: 0;
-  background: rgba(202, 202, 202, 0.15);
+  background: var(--list-bg);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(172, 172, 172, 0.388);
+  border: 1px solid var(--list-border);
   border-radius: 16px;
   padding: 16px;
   max-height: 300px;
@@ -228,8 +229,8 @@ select:focus {
 .time-list li {
   padding: 10px 0;
   text-align: center;
-  border-bottom: 1px solid #ccc;
-  color: #444;
+  border-bottom: 1px solid var(--divider);
+  color: var(--t2);
 }
 
 .time-list li:last-child {
@@ -237,7 +238,7 @@ select:focus {
 }
 
 .note {
-  color: #444;
+  color: var(--t2);
   font-size: 0.85em;
 }
 
@@ -247,7 +248,7 @@ select:focus {
 }
 
 .map-link {
-  color: #0066cc;
+  color: var(--link);
   text-decoration: none;
   font-size: 0.9em;
   cursor: pointer;
@@ -256,12 +257,12 @@ select:focus {
 
 .map-link:hover {
   text-decoration: underline;
-  color: #0052a3;
+  color: var(--link-hover);
 }
 
 .no-data {
   text-align: center;
-  color: #444;
+  color: var(--t2);
   font-style: italic;
 }
 
@@ -274,11 +275,11 @@ option[value=""] {
 }
 
 select {
-  color: #3c3c3c;
+  color: var(--field-text);
 }
 
 .app-footer {
-  background-color: #333333;
+  background-color: var(--footer-bg);
   color: #f0f0f0;
   padding: 32px 20px;
   margin: 40px -20px -32px -20px;
@@ -294,7 +295,7 @@ select {
 .visit-counter {
   margin: 18px 0 0;
   font-size: 0.75rem;
-  color: #666;
+  color: var(--t3);
   font-variant-numeric: tabular-nums;
 }
 
@@ -304,22 +305,22 @@ select,
 select:hover,
 select:focus,
 select:active {
-  color-scheme: light;
-  background-color: #fff;
-  color: #3c3c3c;
-  -webkit-text-fill-color: #3c3c3c;
+  color-scheme: var(--scheme);
+  background-color: var(--field-bg);
+  color: var(--field-text);
+  -webkit-text-fill-color: var(--field-text);
 }
 
 select option {
-  background-color: #fff;
-  color: #000;
-  -webkit-text-fill-color: #000;
+  background-color: var(--field-bg);
+  color: var(--field-text);
+  -webkit-text-fill-color: var(--field-text);
 }
 
 select option:checked,
 select option:hover {
-  background-color: #e8e8ed;
-  color: #000;
+  background-color: var(--field-hi);
+  color: var(--field-text);
 }
 
 select option[value=""] {
@@ -330,7 +331,7 @@ select option[value=""] {
 .tab:disabled {
   opacity: 0.4;
   cursor: not-allowed;
-  background: rgba(0, 0, 0, 0.05);
+  background: var(--tab-disabled-bg);
 }
 
 .tab:disabled:active {
@@ -348,13 +349,13 @@ select option[value=""] {
   border: none;
   border-radius: 50%;
   background: none;
-  color: #8e8e93;
+  color: var(--icon);
   cursor: pointer;
   transition: transform 100ms ease-out, color 150ms ease, opacity 150ms ease;
 }
 
 .save-pdf:hover {
-  color: #6c6c70;
+  color: var(--icon-hover);
 }
 
 .save-pdf:active:not(:disabled) {
@@ -364,4 +365,17 @@ select option[value=""] {
 .save-pdf:disabled {
   opacity: 0.6;
   cursor: default;
+}
+
+/* Light and dark bus pictures swap with the theme */
+.bus-logo-dark {
+  display: none;
+}
+
+:root[data-theme="dark"] .bus-logo {
+  display: none;
+}
+
+:root[data-theme="dark"] .bus-logo-dark {
+  display: block;
 }
