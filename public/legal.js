@@ -10,12 +10,22 @@
     zh: { back: "巴士时刻表", terms: "使用条款", privacy: "隐私政策", credits: "致谢" },
   };
 
+  // First supported language in the browser's preference list, e.g. "zh-CN" -> "zh".
+  function detect() {
+    var prefs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language];
+    for (var i = 0; i < prefs.length; i++) {
+      var base = String(prefs[i] || "").toLowerCase().split("-")[0];
+      if (LANGS.indexOf(base) >= 0) return base;
+    }
+    return "en";
+  }
+
   function saved() {
     try {
       var v = localStorage.getItem(KEY);
-      return LANGS.indexOf(v) >= 0 ? v : "en";
+      return LANGS.indexOf(v) >= 0 ? v : detect();
     } catch (e) {
-      return "en";
+      return detect();
     }
   }
 
