@@ -108,6 +108,7 @@ export default function ScheduleResults({ periodId, routeId, direction, periodMe
         isOpen={mapOpen}
         onClose={() => setMapOpen(false)}
         note={selectedNote}
+        subtitle={[routeMeta?.label, t(direction)].filter(Boolean).join(" · ")}
       />
     </div>
   );

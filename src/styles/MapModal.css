@@ -37,25 +37,42 @@
   border-bottom: 1px solid var(--hairline);
 }
 
+.modal-heading {
+  min-width: 0;
+}
+
 .modal-header h2 {
   margin: 0;
   font-size: 1.5rem;
 }
 
+/* Which bus this map is for, so reopening it never leaves you guessing */
+.modal-subtitle {
+  margin: 2px 0 0;
+  font-size: 0.9rem;
+  color: var(--t3);
+}
+
 .close-btn {
+  flex-shrink: 0;
   background: var(--close-bg);
   color: var(--t1);
   border: none;
   font-size: 1.5rem;
   cursor: pointer;
   padding: 0;
-  width: 30px;
-  height: 30px;
+  width: 44px;
+  height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 4px;
+  border-radius: 8px;
   transition: background-color 0.2s;
+}
+
+/* Bottom Close bar: shown on phones only (see media query) */
+.close-bar {
+  display: none;
 }
 
 .close-btn:hover {
@@ -96,17 +113,41 @@
   gap: 10px;
 }
 
+/* Each row is a button: tap it to jump the map to that stop */
 .stops-list li {
-  padding: 8px 12px;
+  padding: 0;
   background: var(--stop-item-bg);
   color: var(--t1);
   border-radius: 4px;
   border-left: 3px solid #007bff;
   font-size: 0.9rem;
+  transition: background-color 0.2s;
+}
+
+.stops-list li.active {
+  background: var(--chip-bg);
+  border-left-color: var(--blue);
+}
+
+.stops-list li button {
+  display: block;
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 12px;
+  border: none;
+  background: none;
+  font: inherit;
+  text-align: left;
+  color: inherit;
+  cursor: pointer;
+}
+
+.stops-list li button:active {
+  background: var(--chip-bg-press);
 }
 
 .stops-list li strong {
-  color: #007bff;
+  color: var(--chip-text);
   margin-right: 5px;
 }
 
@@ -116,31 +157,40 @@
 
 .popup-content strong {
   display: block;
-  color: #007bff;
+  color: var(--chip-text);
   margin-bottom: 5px;
+  font-size: 1rem;
 }
 
 .popup-content p {
-  margin: 0 0 8px;
-  font-size: 0.9rem;
+  margin: 0 0 10px;
+  font-size: 1rem;
 }
 
-.gmaps-directions-link {
-  display: inline-flex;
+/* The popup's main action: a real button-sized target */
+.popup-content .gmaps-directions-link {
+  white-space: nowrap;
+  display: flex;
   align-items: center;
-  gap: 6px;
-  font-size: 0.8rem;
-  color: #1a73e8;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 16px;
+  border-radius: 22px;
+  background: var(--chip-bg);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--chip-text);
   text-decoration: none;
 }
 
-.gmaps-directions-link:hover {
-  text-decoration: underline;
+.popup-content .gmaps-directions-link:active {
+  background: var(--chip-bg-press);
 }
 
 .gmaps-icon {
-  width: 14px;
-  height: 14px;
+  width: 18px;
+  height: 18px;
   flex-shrink: 0;
 }
 
@@ -275,12 +325,30 @@
 
   .stops-list h3 {
     margin-bottom: 10px;
-    font-size: 0.9rem;
+    font-size: 1rem;
   }
 
   .stops-list li {
-    font-size: 0.8rem;
-    padding: 6px 10px;
+    font-size: 0.95rem;
+  }
+
+  .close-bar {
+    display: block;
+    flex-shrink: 0;
+    min-height: 48px;
+    margin: 0;
+    border: none;
+    border-top: 1px solid var(--hairline);
+    background: var(--close-bg);
+    color: var(--t1);
+    font: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .close-bar:active {
+    filter: brightness(0.92);
   }
 }
 

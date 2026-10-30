@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { MapContainer, TileLayer, Marker, Popup, Polyline, useMap } from "react-leaflet";
 import L from "leaflet";
 import { createPortal } from "react-dom";
@@ -52,15 +52,26 @@ function ResizeWatcher() {
   return null;
 }
 
-export default function MapModal({ isOpen, onClose, note }) {
+const FOCUSABLE = 'button, a[href], [tabindex]:not([tabindex="-1"])';
+
+export default function MapModal({ isOpen, onClose, note, subtitle }) {
   const { t } = useLanguage();
   const [routeCoordinates, setRouteCoordinates] = useState([]);
   const [routeStops, setRouteStops] = useState([]);
+  const [map, setMap] = useState(null);
+  // Which pin's popup is open, keyed by that pin's first step number.
+  const [selectedKey, setSelectedKey] = useState(null);
+
+  const dialogRef = useRef(null);
+  const closeBtnRef = useRef(null);
+  const markerRefs = useRef({});
+  const rowRefs = useRef({});
 
   useEffect(() => {
     if (!isOpen || !note) {
       setRouteCoordinates([]);
       setRouteStops([]);
+      setSelectedKey(null);
       return;
     }
 
@@ -82,11 +93,69 @@ export default function MapModal({ isOpen, onClose, note }) {
       }
     });
 
+    // Stops that share a spot (a loop's first and last) share one pin, named
+    // after the earliest step. `key` ties each list row to its pin.
+    validStops.forEach((s) => {
+      s.key = validStops.find(
+        (o) => o.coords.lat === s.coords.lat && o.coords.lng === s.coords.lng
+      ).step;
+    });
+
     setRouteCoordinates(coordinates);
     setRouteStops(validStops);
   }, [isOpen, note]);
 
+  // Dialog behaviour: move focus in, give it back on close, Escape closes
+  // (first the open stop popup, then the whole dialog).
+  useEffect(() => {
+    if (!isOpen) return;
+    const previouslyFocused = document.activeElement;
+    closeBtnRef.current?.focus();
+
+    const onKey = (e) => {
+      if (e.key !== "Escape") return;
+      if (selectedKey !== null && map) map.closePopup();
+      else onClose();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      previouslyFocused?.focus?.();
+    };
+  }, [isOpen, onClose, map, selectedKey]);
+
+  // Keep the highlighted list row in view when a pin is tapped.
+  useEffect(() => {
+    if (selectedKey === null) return;
+    rowRefs.current[selectedKey]?.scrollIntoView({ block: "nearest", behavior: "smooth" });
+  }, [selectedKey]);
+
   if (!isOpen) return null;
+
+  function trapTab(e) {
+    if (e.key !== "Tab" || !dialogRef.current) return;
+    const items = [...dialogRef.current.querySelectorAll(FOCUSABLE)].filter(
+      (el) => !el.disabled && el.offsetParent !== null
+    );
+    if (items.length === 0) return;
+    const first = items[0];
+    const last = items[items.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
+  }
+
+  // Tapping a list row centers its pin and opens the stop popup.
+  function showStop(stop) {
+    const marker = markerRefs.current[stop.key];
+    if (!map || !marker) return;
+    map.setView([stop.coords.lat, stop.coords.lng], Math.max(map.getZoom(), 15));
+    marker.openPopup();
+  }
 
   const center =
     routeCoordinates.length > 0
@@ -102,10 +171,28 @@ export default function MapModal({ isOpen, onClose, note }) {
   // position:fixed inside itself, making the modal look embedded.
   return createPortal(
     <div className="modal-overlay" onClick={onClose}>
-      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+      <div
+        className="modal-content"
+        ref={dialogRef}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="map-modal-title"
+        onClick={(e) => e.stopPropagation()}
+        onKeyDown={trapTab}
+      >
         <div className="modal-header">
-          <h2>{t("routeMapTitle")}</h2>
-          <button className="close-btn" onClick={onClose}>
+          <div className="modal-heading">
+            <h2 id="map-modal-title">{t("routeMapTitle")}</h2>
+            {subtitle && <p className="modal-subtitle">{subtitle}</p>}
+          </div>
+          <button
+            type="button"
+            className="close-btn"
+            ref={closeBtnRef}
+            onClick={onClose}
+            aria-label={t("close")}
+            title={t("close")}
+          >
             ✕
           </button>
         </div>
@@ -116,7 +203,7 @@ export default function MapModal({ isOpen, onClose, note }) {
           </p>
         ) : (
           <>
-            <MapContainer center={center} zoom={14} className="map-container">
+            <MapContainer center={center} zoom={14} className="map-container" ref={setMap}>
               <TileLayer
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 attribution='&copy; OpenStreetMap contributors'
@@ -157,8 +244,17 @@ export default function MapModal({ isOpen, onClose, note }) {
                     key={idx}
                     position={[stop.coords.lat, stop.coords.lng]}
                     icon={numberedIcon(pinLabel)}
+                    ref={(m) => {
+                      if (m) markerRefs.current[stop.key] = m;
+                    }}
+                    eventHandlers={{
+                      popupopen: () => setSelectedKey(stop.key),
+                      popupclose: () =>
+                        setSelectedKey((k) => (k === stop.key ? null : k)),
+                    }}
                   >
-                    <Popup>
+                    {/* No built-in X (24px, hard to hit): tap the map, press Esc or tap another stop to dismiss. */}
+                    <Popup closeButton={false}>
                       <div className="popup-content">
                         <strong>{t("stopLabel")} {steps}</strong>
                         <p>{stop.name}</p>
@@ -181,15 +277,28 @@ export default function MapModal({ isOpen, onClose, note }) {
             <div className="stops-list">
               <h3>{t("routeStopsHeading")}</h3>
               <ul>
-                {routeStops.map((stop, idx) => (
-                  <li key={idx}>
-                    <strong>{stop.step}.</strong> {stop.name}
+                {routeStops.map((stop) => (
+                  <li
+                    key={stop.step}
+                    className={stop.key === selectedKey ? "active" : ""}
+                    ref={(el) => {
+                      if (el && stop.step === stop.key) rowRefs.current[stop.key] = el;
+                    }}
+                  >
+                    <button type="button" onClick={() => showStop(stop)}>
+                      <strong>{stop.step}.</strong> {stop.name}
+                    </button>
                   </li>
                 ))}
               </ul>
             </div>
           </>
         )}
+
+        {/* Phones: a big Close bar at the bottom, where the thumb rests. */}
+        <button type="button" className="close-bar" onClick={onClose}>
+          {t("close")}
+        </button>
       </div>
     </div>,
     document.body

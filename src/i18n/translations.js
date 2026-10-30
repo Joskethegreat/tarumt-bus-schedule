@@ -37,6 +37,7 @@ export const translations = {
     shareTitle: "Share to your friends!",
     visitsLabel: "Visits:",
 
+    close: "Close",
     routeMapTitle: "Route Map",
     noRouteData:
       "Could not find coordinates for this route. Please check location names.",
@@ -120,6 +121,7 @@ export const translations = {
     shareTitle: "Kongsi dengan rakan anda!",
     visitsLabel: "Lawatan:",
 
+    close: "Tutup",
     routeMapTitle: "Peta Laluan",
     noRouteData:
       "Tidak dapat mencari koordinat untuk laluan ini. Sila semak nama lokasi.",
@@ -202,6 +204,7 @@ export const translations = {
     shareTitle: "分享给朋友！",
     visitsLabel: "访问量：",
 
+    close: "关闭",
     routeMapTitle: "路线地图",
     noRouteData: "找不到此路线的坐标。请检查地点名称。",
     routeStopsHeading: "路线站点：",
