@@ -21,9 +21,13 @@
   border: none;
   border-radius: 50%;
   background: none;
-  color: var(--blue);
+  color: var(--icon);
   cursor: pointer;
   transition: transform 100ms ease-out;
+}
+
+.info-btn:hover {
+  color: var(--icon-hover);
 }
 
 .info-btn:active {
