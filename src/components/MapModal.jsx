@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { MapContainer, TileLayer, Marker, Popup, Polyline } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Popup, Polyline, useMap } from "react-leaflet";
 import L from "leaflet";
 import { createPortal } from "react-dom";
 import { locations } from "../data/locations";
@@ -35,6 +35,21 @@ function arrowIcon(angle) {
     iconSize: [16, 16],
     iconAnchor: [8, 8],
   });
+}
+
+// The map's box is sized by the layout (it fills the phone screen), so Leaflet
+// must re-measure whenever that box changes: rotation, address bar collapsing.
+function ResizeWatcher() {
+  const map = useMap();
+
+  useEffect(() => {
+    const el = map.getContainer();
+    const observer = new ResizeObserver(() => map.invalidateSize());
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [map]);
+
+  return null;
 }
 
 export default function MapModal({ isOpen, onClose, note }) {
@@ -106,6 +121,7 @@ export default function MapModal({ isOpen, onClose, note }) {
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 attribution='&copy; OpenStreetMap contributors'
               />
+              <ResizeWatcher />
               <Polyline positions={routeCoordinates} color="blue" weight={3} />
 
               {routeCoordinates.slice(0, -1).map((start, idx) => {

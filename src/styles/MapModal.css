@@ -225,36 +225,52 @@
   }
 }
 
-@media (max-width: 480px) {
+/* Phones (portrait or landscape): the popup becomes a full-screen sheet.
+   The map takes whatever height is left between the header and the stop
+   list. dvh follows the browser's collapsing address bar; vh is the fallback. */
+@media (max-width: 480px), (max-height: 500px) {
   .modal-overlay {
-    align-items: flex-start;
-    padding-top: 20px;
+    align-items: stretch;
+    justify-content: stretch;
   }
 
   .modal-content {
-    max-width: 100%;
-    width: calc(100% - 20px);
-    max-height: calc(100vh - 40px);
-    margin: 0 10px;
+    max-width: none;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    max-height: none;
+    margin: 0;
+    border: none;
+    border-radius: 0;
+  }
+
+  .modal-header {
+    flex-shrink: 0;
+    padding: 12px 15px;
   }
 
   .modal-header h2 {
     font-size: 1.1rem;
   }
 
-  .modal-header {
-    padding: 15px;
-  }
-
   .map-container {
-    height: 200px;
+    flex: 1 1 auto;
+    height: auto;
+    min-height: 140px;
     margin: 10px;
     width: calc(100% - 20px);
   }
 
   .stops-list {
-    max-height: 150px;
+    flex: 0 0 auto;
+    max-height: 32vh;
+    max-height: 32dvh;
     padding: 10px;
+  }
+
+  .no-data {
+    flex: 1 1 auto;
   }
 
   .stops-list h3 {
