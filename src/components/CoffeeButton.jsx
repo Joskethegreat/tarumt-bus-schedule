@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useLanguage } from "../context/LanguageContext";
 import qr from "../assets/coffee-qr.png";
+import { CoffeeIcon } from "./Icons";
 import "../styles/Coffee.css";
 import "../styles/glass.css";
 
@@ -28,13 +29,12 @@ export default function CoffeeButton() {
     <div className="coffee" ref={rootRef}>
       <button
         type="button"
-        className="coffee-toggle glass"
+        className="pill-btn coffee-toggle glass"
         onClick={() => setOpen((o) => !o)}
-        aria-label={t("coffeeLabel")}
         aria-expanded={open}
-        title={t("coffeeLabel")}
       >
-        <span aria-hidden="true">☕</span>
+        <CoffeeIcon size={18} />
+        {t("coffeeLabel")}
       </button>
 
       {open && (

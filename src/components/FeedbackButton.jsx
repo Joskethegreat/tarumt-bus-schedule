@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { useLanguage } from "../context/LanguageContext";
+import { ChatIcon } from "./Icons";
 import "../styles/Feedback.css";
 import "../styles/glass.css";
 
@@ -7,7 +8,7 @@ const MAX_CHARS = 500;
 // Free Web3Forms access key (public by design); delivers each submission to your inbox.
 const ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_KEY;
 
-// Floating chat button (under the language toggle) that opens a rating popover.
+// Labeled pill above the footer that opens a rating popover.
 // The popover grows out of the button, and suggestion chips change with the rating.
 export default function FeedbackButton() {
   const { t } = useLanguage();
@@ -88,15 +89,12 @@ export default function FeedbackButton() {
     <div className="feedback" ref={rootRef}>
       <button
         type="button"
-        className="feedback-toggle glass"
+        className="pill-btn feedback-toggle glass"
         onClick={() => setOpen((o) => !o)}
-        aria-label={t("feedbackOpen")}
         aria-expanded={open}
-        title={t("feedbackOpen")}
       >
-        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-          <path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.6 8.6 0 0 1-3.6-.8L3 21l1.9-5.3A8.4 8.4 0 0 1 3 11.5 8.5 8.5 0 0 1 12 3a8.5 8.5 0 0 1 9 8.5z" />
-        </svg>
+        <ChatIcon size={18} />
+        {t("feedbackOpen")}
       </button>
 
       {open && (

@@ -4,10 +4,10 @@
   min-height: 28px;
   margin: 4px 0 0;
   padding: 0 12px;
-  border: none;
+  border: 1px solid var(--danger);
   border-radius: 14px;
-  background: #d9534f;
-  color: #fff;
+  background: transparent;
+  color: var(--danger);
   font-size: 0.75rem;
   font-weight: 600;
   cursor: pointer;
@@ -16,7 +16,8 @@
 
 /* After the first read it greys out (still tappable to read again) */
 .disclaimer-btn.seen {
-  background: #b5b5ba;
+  border-color: var(--t3);
+  color: var(--t3);
 }
 
 .disclaimer-btn:active {

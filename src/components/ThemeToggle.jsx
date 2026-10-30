@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { useLanguage } from "../context/LanguageContext";
 import { applyTheme, currentTheme } from "../utils/theme";
-import "../styles/ThemeToggle.css";
+import { SunIcon, MoonIcon } from "./Icons";
 import "../styles/glass.css";
 
-// Button under the coffee button that flips light and dark mode (icon shows the current mode).
+// Top-bar button that flips light and dark mode (icon shows the current mode).
 export default function ThemeToggle() {
   const { t } = useLanguage();
   const [theme, setTheme] = useState(currentTheme);
@@ -20,12 +20,12 @@ export default function ThemeToggle() {
   return (
     <button
       type="button"
-      className="theme-toggle glass"
+      className="bar-btn theme-toggle glass"
       onClick={flip}
       aria-label={label}
       title={label}
     >
-      <span aria-hidden="true">{theme === "dark" ? "🌙" : "☀️"}</span>
+      {theme === "dark" ? <MoonIcon /> : <SunIcon />}
     </button>
   );
 }

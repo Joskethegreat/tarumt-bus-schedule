@@ -15,37 +15,95 @@ body {
   overflow-x: hidden;
 }
 
-.language-toggle {
-  position: fixed;
-  top: 16px;
-  right: 16px;
-  width: 44px;
-  height: 44px;
+/* Top bar: help, language, theme. Scrolls away on phones so it never
+   covers the timetable; pinned to the corner on wider screens. */
+.top-bar {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 16px 16px 0;
+  position: relative;
+  z-index: 1000;
+}
+
+@media (min-width: 768px) {
+  .top-bar {
+    position: fixed;
+    top: 0;
+    right: 0;
+  }
+}
+
+/* Shared round button used by everything in the top bar */
+.bar-btn {
+  position: relative;
+  isolation: isolate; /* keeps the glass sheen (z-index -1) inside the button */
+  width: 40px;
+  height: 40px;
+  padding: 0;
   border-radius: 50%;
   border: none;
-  background: white;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-  font-size: 0.95rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  color: var(--t1);
-  line-height: 1;
   display: flex;
   align-items: center;
   justify-content: center;
+  color: var(--t1);
   cursor: pointer;
-  z-index: 1000;
-  transition: transform 0.15s ease;
+  transition: transform 100ms ease-out;
 }
 
-.language-toggle:hover {
-  transform: scale(1.08);
+.bar-btn:active {
+  transform: scale(0.92);
+}
+
+/* Feedback and coffee: labeled pills above the footer */
+.support-row {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 32px;
+}
+
+.pill-btn {
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 44px;
+  padding: 0 14px;
+  border-radius: 22px;
+  border: none;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--t1);
+  cursor: pointer;
+  transition: transform 100ms ease-out;
+}
+
+.pill-btn:active {
+  transform: scale(0.96);
+}
+
+.language-toggle {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1;
 }
 
 .app {
   max-width: 480px;
   margin: 0 auto;
-  padding: 32px 20px;
+  padding: 12px 20px 32px;
+}
+
+@media (min-width: 768px) {
+  .app {
+    padding-top: 32px;
+  }
 }
 
 .app > p {

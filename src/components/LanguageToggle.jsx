@@ -9,7 +9,7 @@ export default function LanguageToggle() {
   return (
     <button
       type="button"
-      className="language-toggle glass"
+      className="bar-btn language-toggle glass"
       onClick={cycleLanguage}
       aria-label={`Switch language (current: ${NAMES[language]})`}
       title={NAMES[language]}

@@ -41,20 +41,20 @@ function App() {
 
   return (
     <>
-      <LanguageToggle />
-      <FeedbackButton />
-      <HelpButton />
-      <CoffeeButton />
-      <ThemeToggle />
+      <header className="top-bar">
+        <HelpButton />
+        <LanguageToggle />
+        <ThemeToggle />
+      </header>
       <div className="app">
       <img
         src={logo}
-        alt="TARUMT Logo"
+        alt="Illustration of a TARUMT bus front"
         className="bus-logo"
       />
       <img
         src={logoDark}
-        alt="TARUMT Logo"
+        alt="Illustration of a TARUMT bus front"
         className="bus-logo bus-logo-dark"
       />
       <h1>TARUMT</h1>
@@ -81,6 +81,11 @@ function App() {
       )}
 
       {showResults && <ShareButtons visits={visits} />}
+
+      <div className="support-row">
+        <FeedbackButton />
+        <CoffeeButton />
+      </div>
 
       <footer className="app-footer">
         <p className="footer-text">

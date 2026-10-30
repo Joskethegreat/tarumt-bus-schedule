@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { useLanguage } from "../context/LanguageContext";
+import { HelpIcon } from "./Icons";
 import "../styles/Help.css";
 import "../styles/glass.css";
 
@@ -17,7 +18,7 @@ function renderAnswer(text) {
   });
 }
 
-// "?" button under the feedback button; opens a panel of placeholder Q&A.
+// Top-bar help button; opens a panel of placeholder Q&A.
 export default function HelpButton() {
   const { t } = useLanguage();
   const [open, setOpen] = useState(false);
@@ -43,13 +44,13 @@ export default function HelpButton() {
     <div className="help" ref={rootRef}>
       <button
         type="button"
-        className="help-toggle glass"
+        className="bar-btn help-toggle glass"
         onClick={() => setOpen((o) => !o)}
         aria-label={t("helpOpen")}
         aria-expanded={open}
         title={t("helpOpen")}
       >
-        <span aria-hidden="true">?</span>
+        <HelpIcon />
       </button>
 
       {open && (
