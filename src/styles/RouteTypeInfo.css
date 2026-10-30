@@ -1,0 +1,64 @@
+/* Label with a small "?" beside it, centered like the other labels */
+.label-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  margin-bottom: 8px;
+}
+
+.label-row label {
+  margin-bottom: 0;
+}
+
+.info-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: none;
+  color: var(--blue);
+  cursor: pointer;
+  transition: transform 100ms ease-out;
+}
+
+.info-btn:active {
+  transform: scale(0.9);
+}
+
+.info-title {
+  margin: 0 0 14px;
+  text-align: center;
+  font-size: 1.15rem;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+.info-item {
+  margin-bottom: 14px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: var(--surface-2);
+}
+
+.info-item h4 {
+  margin: 0 0 4px;
+  font-size: 0.95rem;
+  color: var(--ink);
+}
+
+.info-item p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: var(--ink-2);
+}
+
+.info-card .disclaimer-close {
+  display: block;
+  margin: 18px auto 0;
+}

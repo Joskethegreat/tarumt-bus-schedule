@@ -16,6 +16,12 @@ export const translations = {
     selectRouteType: "Select a Route Type",
     toCampus: "To Campus",
     fromCampus: "From Campus",
+    routeTypeInfoOpen: "What do To Campus and From Campus mean?",
+    routeTypeInfoTitle: "Route Type",
+    toCampusInfo:
+      "The morning service. The bus collects students from their pick-up points and takes them straight to campus. It does not pick up students from campus.",
+    fromCampusInfo:
+      "For students going back to their place. The bus leaves campus and takes students home, dropping them off along the route.",
     semesterTypeLabel: "Semester Type",
     selectDate: "Select a Date",
 
@@ -93,6 +99,12 @@ export const translations = {
     selectRouteType: "Pilih Jenis Laluan",
     toCampus: "Ke Kampus",
     fromCampus: "Dari Kampus",
+    routeTypeInfoOpen: "Apakah maksud Ke Kampus dan Dari Kampus?",
+    routeTypeInfoTitle: "Jenis Laluan",
+    toCampusInfo:
+      "Perkhidmatan pagi. Bas mengambil pelajar dari tempat menunggu mereka dan membawa mereka terus ke kampus. Bas tidak mengambil pelajar dari kampus.",
+    fromCampusInfo:
+      "Untuk pelajar yang ingin pulang ke tempat mereka. Bas bertolak dari kampus dan menghantar pelajar pulang, dengan menurunkan mereka di sepanjang laluan.",
     semesterTypeLabel: "Jenis Semester",
     selectDate: "Pilih Tarikh",
 
@@ -169,6 +181,12 @@ export const translations = {
     selectRouteType: "选择路线类型",
     toCampus: "前往校园",
     fromCampus: "离开校园",
+    routeTypeInfoOpen: "“前往校园”和“离开校园”是什么意思？",
+    routeTypeInfoTitle: "路线类型",
+    toCampusInfo:
+      "早晨班次。巴士从学生的上车点接载学生，直接送往校园，不会在校园接载学生。",
+    fromCampusInfo:
+      "供要回住处的学生乘搭。巴士从校园出发，沿途送学生回家并让他们下车。",
     semesterTypeLabel: "学期类型",
     selectDate: "选择日期",
 
